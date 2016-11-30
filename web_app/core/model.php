@@ -30,11 +30,32 @@
         var error = document.getElementById("error");
         error.innerHTML = "<?php echo $error ?>";
         error.style.color = "crimson";
+        //error.style.marginTop: '10px';
+        //error.style.marginBottom: '10px';
+        //error.style.top = '10px';
 
         </script>
       <?php
 
       }
+
+      protected function succes($succes){
+          ?>
+
+          <script type="text/javascript">
+
+          var error = document.getElementById("error");
+          error.innerHTML = "<?php echo $succes ?>";
+          error.style.color = "#00D636";
+          //error.style.marginTop: '10px';
+          //error.style.marginBottom: '10px';
+          //error.style.top = '10px';
+
+          </script>
+        <?php
+
+        }
+
 
 
       protected function prepare($statement,$data_array){

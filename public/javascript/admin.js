@@ -7,12 +7,13 @@ window.addEventListener("load", function(){
 
     $(function(){
 
-        $(add).click(function(){
+      /*  $(add).click(function(){
 
 
            $(nieuSchool).animate({
 
-               bottom: -100,
+               bottom: -50,
+               marginBottom: -750,
 
 
            },{
@@ -21,21 +22,83 @@ window.addEventListener("load", function(){
                easing : "easeOutElastic",
 
            })
+           $("#menu").css("bottom","160px");
 
 
-        })
+
+        })*/
 
         $("#sluit").click(function(){
 
             $(nieuSchool).animate({
 
-               bottom: 400,
+               bottom: 1000,
+
 
 
            },{
 
                duration: 1000,
                easing : "easeInOutElastic",
+
+           })
+
+          // $("#menu").css("top","50px");
+
+        })
+
+        $("#grid").click(function(){
+
+           $("#gridOption").animate({
+
+              zIndex: 1,
+              opacity: 1,
+
+           },{
+
+             duration: 1000,
+             easing: "easeInOutElastic",
+
+           })
+
+           $("#listOption").animate({
+
+              zIndex: 0,
+              opacity: 0,
+
+           },{
+
+             duration: 1000,
+             easing: "easeInOutElastic",
+
+           })
+
+        })
+
+
+        $("#list").click(function(){
+
+           $("#listOption").animate({
+
+              zIndex: 1,
+              opacity: 1,
+
+           },{
+
+             duration: 1000,
+             easing: "easeInOutElastic",
+
+           })
+
+           $("#gridOption").animate({
+
+              zIndex: 0,
+              opacity: 0,
+
+           },{
+
+             duration: 1000,
+             easing: "easeInOutElastic",
 
            })
 
@@ -60,6 +123,42 @@ window.addEventListener("load", function(){
           })
 
         }
+
+
+        /*var addInput = document.querySelectorAll(".addInput");
+        var fieldset = document.querySelectorAll(".field");
+
+        var addinput = document.createElement("div");
+        addinput.className = "dateTime";
+
+        addInput[0].addEventListener("click", function(){
+
+           var inputDate = document.createElement("input");
+           inputDate.name = "dag_date";
+           inputDate.type = "date";
+
+           var inputTime = document.createElement("input");
+           inputTime.name = "dag_time";
+           inputTime.type = "time";
+
+           addinput.appendChild(inputDate);
+           addinput.appendChild(inputTime);
+
+           fieldset[0].appendChild(addinput);
+
+        })
+
+        addInput[1].addEventListener("click", function(){
+
+          alert();
+        })
+
+        addInput[2].addEventListener("click", function(){
+
+          alert();
+        })*/
+
+
 
 
 })

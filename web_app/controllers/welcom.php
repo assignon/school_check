@@ -20,6 +20,27 @@
 
     }
 
+    public function add(){
+
+      $this->view('view')->render("add");
+
+    }
+
+
+    public function update(){
+
+      $this->view('view')->render("update");
+
+    }
+
+
+    public function gegevens(){
+
+      $this->view('view')->render("gegevens");
+
+    }
+
+
 
   }
 

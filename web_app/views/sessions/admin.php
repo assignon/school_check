@@ -17,8 +17,7 @@
 
          require "../web_app/views/private/admin.php";
          //$admin->insert_student();
-         $admin->add_school();
-         //$admin->input_value();
+        // $admin->more_input();   
         $admin->delete_school();
         $admin->display_school_grid();
 

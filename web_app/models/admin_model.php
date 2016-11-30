@@ -7,6 +7,8 @@
   class admin_model extends model
   {
 
+    private $increase = 0;
+
     function __construct()
     {
       parent::__construct();
@@ -49,6 +51,8 @@
 
                    var deleteForm = document.getElementById("deleteForm");
                    var schoolId = document.getElementById("schoolId");
+                   var schoolNAME = document.getElementById("schoolNAME");
+                   var updateId = document.getElementById("update_id");
 
                    var studentContainer = document.createElement("div");
                    studentContainer.className = "studentContainerGrid";
@@ -61,9 +65,18 @@
                    schoolname.className = "schoolnameGrid";
                    schoolname.innerHTML = "<?php echo str_replace("_"," ",$student['schoolname']);?>";
 
+                   var updateLink = document.createElement("a");
+                   updateLink.className = "updateLink";
+
+                   updateLink.href = "update?id=<?php echo $_SESSION['id'];?>&schoolname=<?php echo $student['schoolname']; ?>&schoolid=<?php echo $student['id'];?>";
+
                    var update = document.createElement("button");
                    update.className = "updateGrid";
                    update.innerHTML = "Update";
+
+                   var moreLink = document.createElement("a");
+                   moreLink.className = "moreLink";
+                   moreLink.href = "gegevens?id=<?php echo $_SESSION['id'];?>&schoolname=<?php echo $student['schoolname']; ?>";
 
                    var more = document.createElement("button");
                    more.className = "moreGrid";
@@ -73,8 +86,11 @@
                    delet.className = "deleteGrid";
                    delet.innerHTML = "Delete";
 
-                   moreUpdate.appendChild(more);
-                   moreUpdate.appendChild(update);
+                   moreLink.appendChild(more);
+                   moreUpdate.appendChild(moreLink);
+                   updateLink.appendChild(update);
+                   moreUpdate.appendChild(updateLink);
+                   //moreUpdate.appendChild(update);
                    studentContainer.appendChild(delet);
                   // studentContainer.appendChild(studentAvatar);
                    studentContainer.appendChild(schoolname);
@@ -83,45 +99,6 @@
 
                    grid.appendChild(studentContainer);
 
-
-                /*   var schoolname = document.getElementById("schoolName").value;
-                   schoolname = "<?php echo $student['schoolname'];?>";
-
-                   var adress = document.getElementById("adress").value;
-                   adress = "<?php echo $student['adress'];?>";
-
-                   var streetNumber = document.getElementById("streetNumber").value;
-                  streetNumber = "<?php echo $student['street_number'];?>";
-
-                   var telNumber = document.getElementById("telNumber").value;
-                   telNumber = "<?php echo $student['telnr'];?>";
-
-                   var zipcode = document.getElementById("zipcode").value;
-                   zipcode = "<?php echo $student['zipcode'];?>";
-
-                   var district = document.getElementById("district").value;
-                  district = "<?php echo $student['district'];?>";
-
-                   var email = document.getElementById("email").value;
-                   email = "<?php echo $student['email'];?>";
-
-                   var webSite = document.getElementById("webSite").value;
-                   webSite = "<?php echo $student['website'];?>";
-
-                   var email = document.getElementById("email").value;
-                   email = "<?php echo $student['email'];?>";
-
-                   var privat = document.getElementById("private").value;
-                   privat = "<?php echo $student['private'];?>";
-
-                   var concept = document.getElementById("concept").value;
-                   concept = "<?php echo $student['concept'];?>";
-
-                   var special = document.getElementById("special").value;
-                   special = "<?php echo $student['special'];?>";
-
-                   var basic = document.getElementById("basic").value;
-                   basic = "<?php echo $student['basic'];?>";*/
 
 
                   delet.addEventListener("click", function(e){
@@ -133,7 +110,8 @@
 
                            $(deleteForm).animate({
 
-                             top:target+500,
+                             top:target+800,
+                             marginBottom: -200,
 
                            },{
 
@@ -146,6 +124,7 @@
                        })
 
                        schoolId.value = "<?php echo $student['id'];?>";
+                       schoolNAME.value = "<?php echo $student['schoolname'];?>";
 
 
                    })
@@ -155,24 +134,6 @@
 
                         var target = e.target.offsetTop;
 
-                        $(function(){
-
-
-                            $("#update").animate({
-
-                              top:target+300,
-
-                            },{
-
-                              duration: 1000,
-                              easing: "easeOutElastic",
-
-                            })
-
-
-                        })
-
-                        //schoolId.value = "<?php echo $student['id'];?>";
 
 
                     })
@@ -185,6 +146,7 @@
                          $(deleteForm).animate({
 
                            top:0,
+                           marginBottom: -400,
 
                          },{
 
@@ -197,28 +159,6 @@
                      })
 
                    })
-
-                   sluitUpdate.addEventListener("click", function() {
-
-                     $(function(){
-
-
-                         $("#update").animate({
-
-                           top:0,
-
-                         },{
-
-                           duration: 1000,
-                           easing: "easeInOutElastic",
-
-                         })
-
-
-                     })
-
-                   })
-
 
 
                  })
@@ -248,110 +188,119 @@
        $basic = htmlspecialchars($this->POST('basic'));
 
 
+     }
+
+     public function more_input(){
+
+
        ?>
 
-            <script type="text/javascript">
+             <script type="text/javascript">
 
 
-            window.addEventListener("load", function(){
+
+            /* var addInput = document.querySelectorAll(".addInput");
+             var fieldset = document.querySelectorAll(".field");
+
+             var addinput1 = document.createElement("div");
+             addinput1.className = "dateTime";
+
+             var addinput2 = document.createElement("div");
+             addinput2.className = "dateTime";
+
+             var addinput3 = document.createElement("div");
+             addinput3.className = "dateTime";
 
 
-               var schoolname = document.getElementById("schoolName").value;
-               schoolname = "<?php echo $school_name;?>";
+             addInput[0].addEventListener("click", function(){
 
-               var adress = document.getElementById("adress").value;
-               adress = "<?php echo $adress;?>";
+              // var inputDateName = prompt("Geef een naam aan de nieuw Datum veld!!!");
+               //var inputTimeName = prompt("Geef een naam aan de nieuw Tijd veld!!!");
 
-               var streetNumber = document.getElementById("streetNumber").value;
-              streetNumber = "<?php echo $street_number;?>";
-
-               var telNumber = document.getElementById("telNumber").value;
-               telNumber = "<?php echo $telephone;?>";
-
-               var zipcode = document.getElementById("zipcode").value;
-               zipcode = "<?php echo $szip_code;?>";
-
-               var district = document.getElementById("district").value;
-              district = "<?php echo $district;?>";
-
-               var email = document.getElementById("email").value;
-               email = "<?php echo $email;?>";
-
-               var webSite = document.getElementById("webSite").value;
-               webSite = "<?php echo $web_site;?>";
-
-               var email = document.getElementById("email").value;
-               email = "<?php echo $email;?>";
-
-               var privat = document.getElementById("private").value;
-               privat = "<?php echo $private;?>";
-
-               var concept = document.getElementById("concept").value;
-               concept = "<?php echo $concept;?>";
-
-               var special = document.getElementById("special").value;
-               special = "<?php echo $special;?>";
-
-               var basic = document.getElementById("basic").value;
-               basic = "<?php echo $basic;?>";
+               var rand = Math.floor(Math.random()*20)+1;
+               "<?php $rand = rand(1,10);?>";
 
 
-            })
+                var inputDate = document.createElement("input");
+                inputDate.name = 'inputDateName';
+                inputDate.type = "date";
+                inputDate.placeholder = "Datum"
 
-            </script>
+                var inputTime = document.createElement("input");
+                inputTime.name = 'inputTimeName';
+                inputTime.type = "time";
+                inputTime.placeholder = "Tijd"
+
+
+                addinput1.appendChild(inputDate);
+                addinput1.appendChild(inputTime);
+
+                fieldset[0].appendChild(addinput1);
+
+             })
+
+             addInput[1].addEventListener("click", function(){
+
+               var inputDate = document.createElement("input");
+               inputDate.name = 'inputDateName';
+               inputDate.type = "date";
+               inputDate.placeholder = "Datum"
+
+               var inputTime = document.createElement("input");
+               inputTime.name = 'inputTimeName';
+               inputTime.type = "time";
+               inputTime.placeholder = "Tijd"
+
+               addinput2.appendChild(inputDate);
+               addinput2.appendChild(inputTime);
+
+               fieldset[1].appendChild(addinput2);
+
+             })
+
+             addInput[2].addEventListener("click", function(){
+
+               var inputDate = document.createElement("input");
+               inputDate.name = 'inputDateName';
+               inputDate.type = "date";
+               inputDate.placeholder = "Datum"
+
+               var inputTime = document.createElement("input");
+               inputTime.name = 'inputTimeName';
+               inputTime.type = "time";
+               inputTime.placeholder = "Tijd"
+
+
+               addinput3.appendChild(inputDate);
+               addinput3.appendChild(inputTime);
+
+               fieldset[2].appendChild(addinput3);
+
+             })*/
+
+
+             </script>
 
        <?php
 
-     }
 
+         /*if(isset($_POST['add'])){
 
-     public function add_school(){
+           $new_open_dag = $_POST['inputDateName'];
+           $new_dag_time = $_POST['inputTimeName'];
+           $school_name = htmlspecialchars($_POST['school_name']);
 
-        if(isset($_POST['add'])){
+           $this->prepare("INSERT INTO open_day(date_openday,time_openday,school_name) VALUES(?,?,?)",array($new_open_dag,$new_dag_time,$school_name));
 
-          $school_name = htmlspecialchars($_POST['school_name']);
-          $adress = htmlspecialchars($_POST['adress']);
-          $street_number = htmlspecialchars($_POST['street_num']);
-          $zip_code = htmlspecialchars($_POST['zip_code']);
-          $district = htmlspecialchars($_POST['district']);
-          $telephone = htmlspecialchars($_POST['tel']);
-          $email = htmlspecialchars($_POST['email']);
-          $web_site = htmlspecialchars($_POST['web_site']);
-          $private = htmlspecialchars($_POST['private']);
-          $concept = htmlspecialchars($_POST['concept']);
-          $special = htmlspecialchars($_POST['special']);
-          $basic = htmlspecialchars($_POST['basic']);
-
-          if(!empty($school_name) AND !empty($adress) AND !empty($street_number) AND !empty($zip_code) AND !empty($district) AND !empty($telephone) AND !empty($email) AND !empty($web_site) AND !empty($private) AND !empty($concept) AND !empty($special) AND !empty($basic)){
-
-
-             $select = $this->prepare("SELECT*FROM schools WHERE schoolname=? AND adress=? AND zipcode=? AND telnr=? AND email=? AND website=?", array($school_name, $adress, $zip_code, $telephone, $email, $web_site));
-             $school_count = $select->rowCount();
-
-             if($school_count == 0){
-
-               $this->prepare("INSERT INTO schools(schoolname, adress,street_number, zipcode, district, telnr, email, website, private, concept, specials, basis) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",
-               array($school_name, $adress, $street_number, $zip_code, $district, $telephone, $email, $web_site, $private, $concept, $special, $basic));
-
-             }else{
-
-                $this->error("De"." ".$school_name." ".$adress." ".$zip_code." ".$telephone." ".$web_site." ".$email." "."school Bestaat Al");
-
-             }
-
-          }else{
-
-            $this->error("Alles velden invullen");
-
-          }
-
-        }
+        }*/
 
      }
 
 
 
-     public function display_sschool_list(){
+
+
+     public function display_school_list(){
 
 
         $select = $this->getPDO()->query("SELECT*FROM schools");
@@ -397,6 +346,7 @@
                        var deleteForm = document.getElementById("deleteForm");
                        var schoolId = document.getElementById("schoolId");
 
+
                        schoolId.value = "<?php echo $student['id'];?>";
 
                        deleteForm.style.top = "400px";
@@ -419,6 +369,7 @@
         if(isset($_POST['delete'])){
 
             $pass = sha1($_POST['password']);
+            $school_name = htmlspecialchars($_POST['school_name']);
             $id = $_POST['school_id'];
 
             if(!empty($pass)){
@@ -428,17 +379,20 @@
 
               if($pass == $pass_check['password']){
 
-                $selectSchool = $this->prepare("SELECT*FROM schools WHERE id=?", array($id));
+                $selectSchool = $this->prepare("SELECT*FROM schools WHERE id=? AND schoolname=?", array($id,$school_name));
                 $id_check = $selectSchool->fetch();
 
-                if($id == $id_check['id']){
+                if($id == $id_check['id'] AND $school_name == $id_check['schoolname']){
 
                  $this->prepare("DELETE FROM schools WHERE id=?",array($id));
+                 $this->prepare("DELETE FROM open_day WHERE school_name=?",array($school_name));
+                 $this->prepare("DELETE FROM open_class WHERE school_name=?",array($school_name));
+                 $this->prepare("DELETE FROM info_night WHERE school_name=?",array($school_name));
 
                }else{
 
 
-                  $this->error("u kunt de id van het geklickt school niet veranderen");
+                  $this->error("u kunt de id en de naam van het geklikt school niet veranderen");
 
                }
 
@@ -459,6 +413,10 @@
 
 
      }
+
+
+
+
 
   }
 

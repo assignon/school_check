@@ -1,0 +1,267 @@
+body, html{
+
+    padding: 0px;
+    margin: 0px;
+
+}
+
+#addContainer{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.inputField{
+
+  display: flex;
+  flex-direction: column;
+  width: 210px;
+  height: auto;
+  justify-content: center;
+  padding: 15px;
+  border: 1px solid crimson;
+  border-radius: 3px;
+  align-items: center;
+  margin: auto;
+  margin-bottom: -280px;
+  position: relative;
+  bottom: 320px;
+  z-index: 3;
+  background-color: white;
+
+}
+
+#sluit{
+    width: 50px;
+    height: 50px;
+    border: 1px solid red;
+    color: white;
+    background-color: red;
+    border-radius: 100%;
+    position: relative;
+    bottom: 8px;
+    left: 70px;
+    cursor: pointer;
+
+}
+
+.inputField input{
+
+  width: 200px;
+  height: 30px;
+  border: 1px solid crimson;
+  color: crimson;
+  font-size: 18px;
+  padding-left: 10px;
+  background-color: white;
+
+}
+
+.inputField input:nth-child(2){
+
+   border-radius: 3px 3px 0px 0px;
+
+}
+
+.inputField input:nth-child(3){
+
+   border-radius: 0px 0px 3px 3px;
+
+}
+
+.inputField input:nth-child(4){
+
+   border-radius: 0px 0px 3px 3px;
+
+}
+
+.inputField input:nth-child(5){
+
+   border-radius: 0px 0px 3px 3px;
+
+}
+
+.inputField input:nth-child(7){
+
+   border-radius: 0px 0px 3px 3px;
+
+}
+
+
+.inputField input:nth-child(7){
+
+   border-radius: 3px;
+   background-color: crimson;
+   color: white;
+   width: 100px;
+   margin-top:20px;
+   cursor: pointer;
+
+}
+
+#error{
+
+  font-size: 20px;
+  position: relative;
+  top: 50px;
+  z-index: 3;
+}
+
+#addSchool{
+
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  margin: auto;
+  background-color: white;
+  padding-top: 50px;
+  padding-bottom: 30px;
+
+
+}
+
+.deel1{
+
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: white;
+    margin: auto;
+
+}
+
+
+
+
+.deel1 input{
+
+    width: 310px;
+    height: 35px;
+    border: 1px solid #0375B4;
+    border-radius: 3px;
+    padding-left: 15px;
+    color: #0375B4;
+    font-size: 18px;
+    margin: 15px;
+
+}
+
+.deel1 select{
+
+    width: 330px;
+    height: 40px;
+    border: 1px solid #0375B4;
+    border-radius: 3px;
+    padding-left: 15px;
+    color: #0375B4;
+    font-size: 18px;
+    margin: 15px;
+
+}
+
+.deel2{
+
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: white;
+    margin: auto;
+
+
+}
+
+.deel2 fieldset{
+
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #0375B4;
+    border-radius: 3px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+
+.dateTime{
+
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+
+}
+
+.dateTime input{
+
+    width: 130px;
+    height: 40px;
+    border: 1px solid #0375B4;
+    padding-left: 15px;
+    color: #0375B4;
+    font-size: 18px;
+    margin-bottom: 25px;
+
+}
+
+.dateTime input[type='date']{
+
+    border-radius: 3px 0px 0px 3px;
+
+}
+
+.dateTime input[type='time']{
+
+    border-radius: 0px 3px 3px 0px;
+
+}
+
+ select{
+
+    width: 295px;
+    height: 40px;
+    border: 1px solid #0375B4;
+    padding-left: 15px;
+    color: #0375B4;
+    font-size: 18px;
+    margin-bottom: 25px;
+
+}
+
+.addInput{
+
+    width: 300px;
+    height: 40px;
+    background-color: #0375B4;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+
+.addInput p{
+
+    text-align: center;
+    color: white;
+    font-size: 18px;
+
+
+}
