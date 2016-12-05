@@ -32,8 +32,15 @@
 
          }
 
-         $update->update_school($update_id);
+         $update->update_school($update_id, $update_name);
          $update->select_school($update_id);
+
+         $update->display_open_day($update_name);
+         $update->display_open_class($update_name);
+         $update->display_night_information($update_name);
+         $update->visit('open_day',$update_name,'date_openday','time_openday',0,1,9,4);
+         $update->visit('open_class',$update_name,'date_openclass','time_openclass',2,3,11,5);
+         $update->visit('info_night',$update_name,'date_infonight','time_infonight',4,5,13,6);
 
 
 

@@ -20,19 +20,7 @@
 
        <header>
 
-          <form class="inputField" action="" method="post">
 
-             <div id="sluit">
-                <p>Sluiten</p>
-             </div>
-             <input type="text" name="field_date" placeholder="Veld Naam voor Datum">
-             <input type="text" name="place_holder_date" placeholder="PlaceHolder voor Datum">
-             <input type="text" name="field_time" placeholder="Veld Naam voor Tijd">
-             <input type="text" name="place_holder_time" placeholder="PlaceHolder voor Tijd">
-             <input type="text" name="soort_field" id="soort">
-             <input type="submit" name="add_input" value="Voeg Toe">
-
-          </form>
 
           <a href="admin?id=<?php echo $_SESSION['id'];?>"><button>Naar de admin Page</button></a>
 
@@ -129,64 +117,125 @@
 
                 </select>
 
+                <fieldset id="extraInfo">
+                  <legend>Extra Informatie</legend>
+
+                  <select name="tto"   value="<?php //echo $add->POST('basic') ?>" class="aadInput">
+
+                    <option value="">Tto</option>
+                    <option value="js">Ja</option>
+                    <option value="nee">Nee</option>
+
+                  </select>
+
+                  <select name="sport"   value="<?php //echo $add->POST('basic') ?>" class="aadInput">
+
+                    <option value="">Sport</option>
+                    <option value="ja">Ja</option>
+                    <option value="nee">Nee</option>
+
+                  </select>
+
+                  <select name="tech"   value="<?php //echo $add->POST('basic') ?>" class="aadInput">
+
+                    <option value="">Technologie</option>
+                    <option value="ja">Ja</option>
+                    <option value="nee">Nee</option>
+
+                  </select>
+
+                  <select name="spanish"   value="<?php //echo $add->POST('basic') ?>" class="aadInput">
+
+                    <option value="">Spaans</option>
+                    <option value="ja">Ja</option>
+                    <option value="nee">Nee</option>
+
+                  </select>
+
+                  <select name="art"   value="<?php //echo $add->POST('basic') ?>" class="aadInput">
+
+                    <option value="">Kunst</option>
+                    <option value="ja">Ja</option>
+                    <option value="nee">Nee</option>
+
+                  </select>
+
+                </fieldset>
+
+
+
 
 
              </div>
 
                 <div class="deel2">
 
-                    <fieldset class="field">
+                  <fieldset class="opens">
+                    <legend>Open Dagen, Klassen en Nacht Informatie</legend>
 
-                        <legend>Open Dag</legend>
-
-                        <div class="dateTime">
-
-                            <input type="date" name="dag_date">
-                            <input type="time"  name="dag_time">
+                      <p>Als u meerder open dagen, klassen of nacht informatie hebben, kunt u helemaal onderaan op de Blauwe knoop(waarop meer opties staat) door middel van een formulier meer toevoegen.</p>
+                      <div class="fieldsets">
 
 
-                        </div>
+                        <fieldset class="field">
 
-                        <div class="addInput"><p>Voeg Meer Velden Toe</p></div>
+                            <legend>Open Dag</legend>
 
-                    </fieldset>
+                            <div class="dateTime">
 
-                    <fieldset class="field">
-
-                        <legend>Open Klas</legend>
-
-                        <div class="dateTime">
-
-                            <input type="date" name="class_date" placeholder="Datum">
-                            <input type="time" name="class_time" placeholder="Tijd">
+                                <input type="date" name="dag_date" placeholder="Datum">
+                                <input type="time"  name="dag_time" placeholder="Tijd">
 
 
-                        </div>
+                            </div>
 
-                        <div class="addInput"><p>Voeg Meer Velden Toe</p></div>
+                        </fieldset>
 
-                    </fieldset>
+                        <fieldset class="field">
 
-                    <fieldset class="field">
+                            <legend>Open Klas</legend>
 
-                        <legend>Nacht Informatie</legend>
+                            <div class="dateTime">
 
-                        <div class="dateTime">
-
-                            <input type="date" name="info_date">
-                            <input type="time" name="info_time">
+                                <input type="date" name="class_date" placeholder="Datum">
+                                <input type="time" name="class_time" placeholder="Tijd">
 
 
-                        </div>
+                            </div>
 
-                        <select name="kind_parent" class="pKind" require>
+                        </fieldset>
 
-                            <option value="">Kies uit allen ouders of ouders en student</option>
-                            <option value="parent">Ouders</option>
-                            <option value="parent_kind">Ouders en Student</option>
+                        <fieldset class="field">
 
-                        </select>
-                        <div class="addInput"><p>Voeg Meer Velden Toe</p></div>
+                            <legend>Nacht Informatie</legend>
+
+                            <div class="dateTime">
+
+                                <input type="date" name="info_date" placeholder="Datum">
+                                <input type="time" name="info_time" placeholder="Tijd">
+
+
+                            </div>
+
+                            <select name="kind_parent" class="pKind" >
+
+                                <option value="">Kies uit allen ouders of ouders en student</option>
+                                <option value="parent">Ouders</option>
+                                <option value="parent_kind">Ouders en Student</option>
+
+                            </select>
+
+                        </fieldset>
+
+
+
+                      </div>
+
+                  </fieldset>
+
+                    <fieldset id="levels">
+                     <legend>Niveau </legend>
+
 
                     </fieldset>
 
@@ -195,6 +244,123 @@
                 <input type="submit" name="add" value="Voeg Toe" id="submit">
 
             </form>
+
+          </div>
+
+          <div id="options">
+
+            <button id="hide">Verbergen</button>
+            <button id="show">Meer opties</button>
+
+
+          </div>
+
+          <div id="extraOption">
+
+                <div class="extras">
+
+                  <form  action="" method="post">
+
+                     <input type="text" name="level" placeholder="Niveau Naam">
+                     <input type="text" name="value" placeholder="Niveau Waarde">
+                     <input type="submit" name="addLevel" value="Toevoegen">
+
+                  </form>
+                  <p>Hier kunnen jullie nieuw Niveau toevoegen</p>
+
+                </div>
+
+                <div class="extras">
+
+                  <form  action="" method="post">
+
+                     <input type="text" name="district" placeholder="stadsdeel Naam">
+                     <input type="submit" name="adddistrict" value="Toevoegen">
+
+                  </form>
+                  <p>Hier kunnen jullie nieuw stadsdeel toevoegen</p>
+
+                </div>
+
+                <div class="extras">
+
+                  <form  action="" method="post">
+
+                     <input type="text" name="concept" placeholder="Concept Naam">
+                     <input type="submit" name="addconcept" value="Toevoegen">
+
+                  </form>
+                  <p>Hier kunnen jullie nieuw Concept toevoegen</p>
+
+                </div>
+
+
+                <div class="extras">
+
+                  <form  action="" method="post">
+
+                     <input type="text" name="onderwijs" placeholder="Onderwijs Naam">
+                     <input type="submit" name="addOnderwijs" value="Toevoegen">
+
+                  </form>
+                  <p>Hier kunnen jullie nieuw Speciaal Onderwijs toevoegen</p>
+
+                </div>
+
+                <div class="extras">
+
+                  <form  action="" method="post">
+
+                     <input type="text" name="openbaar" placeholder="Openbaar Naam">
+                     <input type="submit" name="addOpenbaar" value="Toevoegen">
+
+                  </form>
+                  <p>Hier kunnen jullie nieuw Openbaarheden toevoegen</p>
+
+                </div>
+
+                <div class="extras">
+
+                  <form  action="" method="post">
+
+                     <input type="text" name="input_name_date" placeholder="Datum Veld Naam">
+
+                     <input type="date" name="field_date" placeholder=" Datum">
+                     <input type="text" name="input_name_time" placeholder="Tijd Veld Naam">
+                     <input type="time" name="field_time" placeholder=" Tijd">
+                     <select  name="schools" id="allschool" required="">
+
+                       <option value="">Kies bij welk school de informaties horen</option>
+
+
+                     </select>
+
+                     <select id="pkind" name="kparent">
+
+                        <option value="">Ouders/Ouders-kind</option>
+                        <option value="parent">Ouders</option>
+                        <option value="kindParent">Ouders en Kind</option>
+
+                     </select>
+
+                     <div class="soorts">
+
+                         <p>Open Dag:</p> <input type="radio" name="soort" value="openday" class="openInfos">
+                         <p>Open Klas:</p> <input type="radio" name="soort" value="openclass" class="openInfos">
+                         <p>Nacht Informatie:</p> <input type="radio" name="soort" value="nightinfo" class="openInfos">
+
+                     </div>
+
+                     <input type="submit" name="add_input" value="Toevoegen" >
+
+
+                  </form>
+                  <p id="opening">Hier kunnen jullie nieuw Openbaarheden toevoegen</p>
+
+                </div>
+
+
+
 
           </div>
 

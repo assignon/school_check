@@ -84,6 +84,79 @@ session_start();
    }
 
 
+   public function change_avatar($path_name, $uploadfile_size){
+
+     if(isset($_POST['updateAvatar']) AND !empty($_FILES['avatar'])){
+
+         $img_name = $_FILES['avatar']['name'];
+         $img_tmp  = $_FILES['avatar']['tmp_name'];
+         $img_size = $_FILES['avatar']['size'];
+
+         $img_path = $path_name.'/'.$img_name;
+
+         $valide_extention = array('.png','.jpg','.jpeg');
+         $upload_extention = strrchr($img_name,'.');
+
+         if(in_array($upload_extention,$valide_extention)){
+
+            if($img_size <= $uploadfile_size){
+
+              if(move_uploaded_file($img_tmp,$img_path)){
+                  
+
+                  $this->prepare("UPDATE  user_avatar SET image_src=?", array($img_path));
+
+                  $this->succes("Afbeelding Geupload");
+
+              }else{
+
+                $this->error("Bestaande is niet geupload");
+
+              }
+
+            }else{
+
+               $this->error("Bestaande te groote (MAX: 24816MO)");
+
+            }
+
+         }else{
+
+           $this->error("Bestaande Extentie niet toegestaan (Alleen PNG, JPEG EN JPG)");
+
+         }
+
+     }
+
+   }
+
+   public function display_user_avatar(){
+
+     $select = $this->getPDO()->query("SELECT*FROM user_avatar");
+
+     while($user_avatar = $select->fetch()){
+
+       ?>
+
+          <script type="text/javascript">
+
+            window.addEventListener("load", function(){
+
+               var avatar = document.getElementById("userAvatar");
+               avatar.src = "../<?php echo $user_avatar['image_src'];?>";
+
+
+            })
+
+          </script>
+
+       <?php
+
+     }
+
+   }
+
+
   }
 
 

@@ -148,6 +148,131 @@
 
              </div>
 
+             <div class="updateBox">
+
+               <div class="formulaire">
+
+                 <select name="tto"  class="updateInput">
+
+                   <option value="">Tto</option>
+                   <option value="js">Ja</option>
+                   <option value="nee">Nee</option>
+
+                 </select>
+
+                 <select name="sport"  class="updateInput">
+
+                   <option value="">Sport</option>
+                   <option value="ja">Ja</option>
+                   <option value="nee">Nee</option>
+
+                 </select>
+
+                 <select name="tech"  class="updateInput">
+
+                   <option value="">Technologie</option>
+                   <option value="ja">Ja</option>
+                   <option value="nee">Nee</option>
+
+                 </select>
+
+                 <select name="spanish"   class="updateInput">
+
+                   <option value="">Spaans</option>
+                   <option value="ja">Ja</option>
+                   <option value="nee">Nee</option>
+
+                 </select>
+
+                 <select name="art" class="updateInput">
+
+                   <option value="">Kunst</option>
+                   <option value="ja">Ja</option>
+                   <option value="nee">Nee</option>
+
+                 </select>
+
+
+               </div>
+
+               <div class="formulaire">
+
+               </div>
+
+             </div>
+
+             <div class="updateBox">
+
+                <div class="formulaire">
+                  <p>Open dag</p>
+                  <div class="dateTime">
+
+                      <!--<input type="date" name="dag_date" class="inputs_parent">
+                      <input type="time"  name="dag_time" class="inputs_parent">-->
+
+
+                  </div>
+
+                  <!--<div class="addInput"><p>Voeg Meer Velden Toe</p></div>-->
+
+                </div>
+
+                <div class="formulaire">
+
+
+
+                </div>
+
+             </div>
+
+             <div class="updateBox">
+
+                <div class="formulaire">
+                  <p>Open Klas</p>
+                  <div class="dateTime">
+
+                      <!--<input type="date" name="class_date" placeholder="Datum" class="inputs_parent">
+                      <input type="time" name="class_time" placeholder="Tijd" class="inputs_parent">-->
+
+
+                  </div>
+                    <!--<div class="addInput"><p>Voeg Meer Velden Toe</p></div>-->
+                </div>
+
+                <div class="formulaire">
+
+                </div>
+
+             </div>
+
+             <div class="updateBox">
+
+                <div class="formulaire">
+                  <p>Nacht Informatie</p>
+                  <div class="dateTime">
+
+                      <!--<input type="date" name="info_date" class="inputs_parent">
+                      <input type="time" name="info_time" class="inputs_parent">-->
+
+
+                  </div>
+
+                  <select name="kind_parent" class="pKind" required>
+
+                      <option value="">Kies uit allen ouders of ouders en student</option>
+                      <option value="parent">Ouders</option>
+                      <option value="parent_kind">Ouders en Student</option>
+
+                  </select>
+                  <!--<div class="addInput"><p>Voeg Meer Velden Toe</p></div>-->
+                </div>
+
+                <div class="formulaire">
+
+                </div>
+
+             </div>
+
 
                <input type="submit" name="update" value="Update">
 

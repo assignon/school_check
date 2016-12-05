@@ -7,6 +7,8 @@
 
   $login->insert_users();
   $login-> users_inlog();
+  $login->change_avatar('../public/images/user_avatar',30000);
+  $login->display_user_avatar();
 
 
  ?>

@@ -1,69 +1,206 @@
-#adminContainer{
+
+html, body{
+
+  padding: 0px;
+  margin: 0px;
+  background-image: url(../images/admin.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
     
+
+}
+
+
+#adminContainer{
+
     display: flex;
     flex-direction: column;
     width: 100%;
     height: auto;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: 70px;
     
+
 }
 
 #adminContainer img{
-    
+
     width: 200px;
     height: 200px;
-    border: 2px solid blue;
+    border: 2px solid black;
     border-radius: 100%;
-    margin-top: 100px;
-    margin-bottom: 20px;
+   /* margin-top: 100px;
+    margin-bottom: 20px;*/
+
+}
+
+#adding{
+    
+    width: auto;
+    height: auto;
+    margin-right: 350px;
+    margin-bottom: 100px;
+    margin-top: 20px;
     
 }
 
-#adminContainer form{
-    
+#adding form{
+
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 350px;
     height: auto;
+  
+
+}
+
+
+.changeAvatar{
+    
+    position: absolute;
+    backface-visibility: hidden;
+    transform: perspective(600px) rotateY(180deg);
+    -webkit-transform: perspective(600px) rotateY(180deg);
+    transition: transform 1s linear 0s;
+  
     
 }
 
-#adminContainer form p{
+.changeAvatar input[type="submit"]{
     
+    position: relative;
+    top: 50px;
+    
+}
+
+#avatar{
+    
+    position: absolute;
+    backface-visibility: hidden;
+    transform: perspective(600px) rotateY(0deg);
+    -webkit-transform: perspective(600px) rotateY(0deg);
+    transition: transform 1s linear 0s;
+    
+}
+
+
+#adding form h2{
+
     text-align: center;
     color: crimson;
-    font-size: 20px;
-    margin-bottom: 15px;
-    
+    position: relative;
+    top: 30px;
 }
 
 
-#adminContainer form input{
-    
+#adding form input{
+
     width: 300px;
     height: 35px;
-    border: 2px solid blue;
+    border: 1px solid #0375B4;
     padding-left: 15px;
-    color: blue;
+    color: #0375B4;
     font-size: 18px;
     border-radius: 4px;
-    margin-bottom: 15px;
-    
+    margin-top: 10px;
+
 }
 
 #adminContainer form input[type='submit']{
-    
+
     width: 200px;
-    background-color: blue;
+    background-color: #0375B4;
     position: relative;
     left: 50px;
     color: white;
     cursor: pointer;
+
+}
+
+#parameter{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    position: relative;
+    top: 170px;
     
 }
 
+.parameters{
+    
+    width: 90px;
+    height: 90px;
+  
+    border-radius: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    
+    
+}
+
+.parameters:hover{
+    
+    
+    height: 70px;
+    width: 70px;
+    
+    
+}
+
+.params{
+    
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    position: absolute;
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: #0375B4;
+    
+}
+
+.params:first-child{
+    
+   /* background-image: url(../images/chdAvatar.png);
+    background-blend-mode: luminosity;*/
+    
+    background-color: crimson;
+    border: 1px solid crimson;
+    text-align: center;
+    color: white
+   
+}
+
+.params:first-child:hover{
+    
+    /*background-image: url(../images/chgbgk.png);*/
+    height: 70px;
+    width: 70px;
+   
+}
+
+.params:nth-child(2){
+    
+    background-image: url(../images/chdAvatar.png);
+    background-blend-mode: luminosity;
+    
+ 
+}
+
+.params:nth-child(2):hover{
+    
+    background-image: url(../images/chgbgk.png);
+    height: 70px;
+    width: 70px;
+}
 
 
 

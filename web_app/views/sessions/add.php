@@ -20,8 +20,15 @@
          require "../web_app/views/private/add.php";
 
          $add->add_school();
-         $add->display_field();
          $add->add_field();
+         /*$add->display_open_day();
+         $add->display_open_class();
+         $add->display_night_information();*/
+         $add->addAfter('add_levels','addLevel','level','vvalue','level_name','lavel_value');
+         $add->display_level();
+         $add->allschool('schoolname');
+        // $add->test();
+
 
 
        }else{

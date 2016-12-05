@@ -85,7 +85,7 @@ body, html{
     /*margin-top: 230px;*/
     /*margin-bottom: -30px;*/
     position:absolute;
-    top: 70px;
+    top: 10px;
 
 
 
@@ -105,13 +105,16 @@ body, html{
 
    width: 80px;
     height: 80px;
-    border: 1px solid crimson;
+    border: 2px solid #00b0f0;
+    background-color: #00b0f0;
+    background-position: center;
     border-radius: 4px;
     margin-right: 50px;
     position: relative;
     right: 280px;
     top: 10px;
     cursor: pointer;
+    background-image: url(../images/grid.jpg);
 
 }
 
@@ -119,7 +122,7 @@ body, html{
 
     width: 250px;
     height: 60px;
-    border: 1px solid crimson;
+    background-color: crimson;
     border-radius: 4px;
     margin-right: 50px;
     position: relative;
@@ -134,13 +137,17 @@ body, html{
 
     width: 80px;
     height: 80px;
-    border: 1px solid crimson;
+    
     border-radius: 4px;
     margin-right: 50px;
     position: relative;
     right: 220px;
     top: 10px;
     cursor: pointer;
+    background-image: url(../images/list.jpg);
+    border: 2px solid #00b0f0;
+    background-color: #00b0f0;
+    background-position: center;
 
 }
 
@@ -190,20 +197,6 @@ body, html{
 
 }
 
-#listOption{
-
-    position: absolute;
-    width: 100%;
-    height: auto;
-    background-color: white;
-     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    opacity: 0;
-
-
-}
 
 .studentContainerGrid{
 
@@ -240,6 +233,12 @@ body, html{
     margin: auto;
     position: relative;
     top: 30px;
+}
+
+.schoolnameGrid:hover{
+
+  color: crimson;
+
 }
 
 .moreUpdateGrid{
@@ -304,5 +303,115 @@ body, html{
 
   background-color: crimson;
   color: white;
+
+}
+
+.moreLink{
+
+   text-decoration: none;
+
+}
+
+#listOption{
+
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background-color: white;
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    margin-top: 50px;
+
+
+}
+
+
+.studentContainerList{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 90%;
+  height: auto;
+  margin-bottom: 20px;
+  align-items: center;
+
+}
+
+.schoolLink{
+
+  width: 60%;
+  height: 50px;
+  border: 1px solid #0375B4;
+  border-radius: 3px 0px 0px 3px;
+  padding: 5px;
+  background-color: #0375B4;
+  text-decoration: none;
+  margin-left: 7px;
+  margin-right: 7px;
+
+}
+
+.schoolnameList{
+
+  text-align: center;
+  color: white;
+
+
+}
+
+.schoolnameList:hover{
+
+  color: crimson;
+
+}
+
+.updateList{
+
+  width: 100px;
+  height: 62px;
+  color: white;
+  background-color: #00D636;
+  border: 1px solid #00D636;
+  text-align: center;
+  padding: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  cursor:pointer;
+
+}
+
+.deleteList{
+
+  width: 100px;
+  height: 62px;
+  color: white;
+  background-color: crimson;
+  border: 1px solid crimson;
+  text-align: center;
+  padding: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  cursor:pointer;
+
+}
+
+.moreList{
+
+  width: 100px;
+  height: 62px;
+  color: white;
+  background-color:#0375B4;
+  text-align: center;
+  border: 1px solid #0375B4;
+  border-radius: 0px 3px 3px 0px;
+  padding:5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  cursor:pointer;
+
 
 }

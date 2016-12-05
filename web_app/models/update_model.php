@@ -22,7 +22,7 @@ class update_model extends model
 
    }
 
-   public function update_school($update_id){
+   public function update_school($update_id,$update_name){
 
 
      if(isset($_POST['update'])){
@@ -39,14 +39,39 @@ class update_model extends model
        $concept = htmlspecialchars($_POST['concept']);
        $special = htmlspecialchars($_POST['special']);
        $basic = htmlspecialchars($_POST['basis']);
-       //$update_id = $_POST['schoolUpdate_id'];
+       $tto = htmlspecialchars($_POST['tto']);
+       $sport = htmlspecialchars($_POST['sport']);
+       $tech = htmlspecialchars($_POST['tech']);
+       $spanish = htmlspecialchars($_POST['spanish']);
+       $art = htmlspecialchars($_POST['art']);
 
-        $select = $this->prepare("SELECT*FROM schools WHERE id=?",array($update_id));
-        //$update_select = $select->fetch();
+       /*$openday_date = htmlspecialchars($_POST['dag_date']);
+       $openday_time = htmlspecialchars($_POST['dag_time']);
+
+       $openclass_date = htmlspecialchars($_POST['class_date']);
+       $openclass_time = htmlspecialchars($_POST['class_time']);
+
+       $infonight_date = htmlspecialchars($_POST['info_date']);
+       $infonight_time = htmlspecialchars($_POST['info_time']);
+       $infonight_select = htmlspecialchars($_POST['kind_parent']);
+       //$update_id = $_POST['schoolUpdate_id'];*/
+
+        $select = $this->getPDO()->prepare("SELECT*FROM open_day");
+        $openday_select = $select->fetch();
 
 
-           $this->prepare("UPDATE schools SET schoolname=?, adress=?, street_number=?, zipcode=?, district=?, telnr=?, email=?, website=?, private=?, concept=?, specials=?, basis=? WHERE id=?",
-           array($school_name, $adress, $street_number, $zip_code,$district, $telephone, $email, $web_site, $private, $concept, $special, $basic,$update_id));
+           $this->prepare("UPDATE schools SET schoolname=?, adress=?, street_number=?, zipcode=?, district=?, telnr=?, email=?, website=?, private=?, concept=?, specials=?, basis=?, tto=?, sport=?, spanish=?, technologie=?, art=? WHERE id=?",
+           array($school_name, $adress, $street_number, $zip_code,$district, $telephone, $email, $web_site, $private, $concept, $special, $basic,$tto,$sport,$spanish,$tech,$art,$update_id));
+
+           //$this->prepare("UPDATE open_day SET date_openday=?, time_openday=? WHERE school_name=?,id=? ",
+           //array($openday_date, $openday_time, $update_name, $openday_select['id']));
+
+           //$this->prepare("UPDATE open_class SET date_openclass=?, time_openclass WHERE school_name=?",
+           //array($openclass_date, $openclass_time ,$update_name));
+
+           //$this->prepare("UPDATE info_night SET date_infonight=?, time_infonight, parents_kind WHERE school_name=?",
+           //array($infonight_date, $infonight_time, $infonight_select, $update_name));
+
 
            $this->succes("Wijziging succes vol");
 
@@ -55,8 +80,13 @@ class update_model extends model
      }
    }
 
+   /***********************************************************************************************************************************************************/
+
+   /**********************************************************************************************************************************************************/
+
 
      public function select_school($schoolid){
+
 
 
         $select = $this->prepare("SELECT*FROM schools WHERE id=?", array($schoolid));
@@ -72,7 +102,6 @@ class update_model extends model
                    var updateBox = document.querySelectorAll(".updateBox");
 
                    var windowH = window.pageYOffset;
-
 
                    var formulaire = document.querySelectorAll(".formulaire");
 
@@ -114,9 +143,20 @@ class update_model extends model
                      var schoolData10 = document.createElement("h3");
                      schoolnameclassName = "schoolData";
 
+                     var schoolData11 = document.createElement("h3");
+                     schoolnameclassName = "schoolData";
 
+                     var schoolData12 = document.createElement("h3");
+                     schoolnameclassName = "schoolData";
 
+                     var schoolData13 = document.createElement("h3");
+                     schoolnameclassName = "schoolData";
 
+                     var schoolData14 = document.createElement("h3");
+                     schoolnameclassName = "schoolData";
+
+                     var schoolData15 = document.createElement("h3");
+                     schoolnameclassName = "schoolData";
 
 
 
@@ -131,6 +171,11 @@ class update_model extends model
                      schoolData8.innerHTML = "Privee:  <?php echo $school['private'];?>";
                      schoolData9.innerHTML = "Concept:  <?php echo $school['concept'];?>";
                      schoolData10.innerHTML = "Basis:  <?php echo $school['basis'];?>";
+                     schoolData11.innerHTML = "TTO:  <?php echo $school['tto'];?>";
+                     schoolData12.innerHTML = "Sport:  <?php echo $school['sport'];?>";
+                     schoolData13.innerHTML = "Spanish:  <?php echo $school['spanish'];?>";
+                     schoolData14.innerHTML = "Technologie:  <?php echo $school['technologie'];?>";
+                     schoolData15.innerHTML = "Kunst:  <?php echo $school['art'];?>";
 
                      formulaire[1].appendChild(schoolname);
                      formulaire[1].appendChild(schoolData0);
@@ -147,10 +192,17 @@ class update_model extends model
                      formulaire[5].appendChild(schoolData1);
                      formulaire[5].appendChild(schoolData10);
 
+                     formulaire[7].appendChild(schoolData11);
+                     formulaire[7].appendChild(schoolData12);
+                     formulaire[7].appendChild(schoolData13);
+                     formulaire[7].appendChild(schoolData14);
+                     formulaire[7].appendChild(schoolData15);
+
                      //formulaireappendChild(schoolDataArr);
                      updateBox[0].appendChild(formulaire[1]);
                      updateBox[1].appendChild(formulaire[3]);
                      updateBox[2].appendChild(formulaire[5]);
+                     updateBox[3].appendChild(formulaire[7]);
 
                      var updateData = document.querySelectorAll(".updateInput");
                      //var concept = document.getElementById("concepts").value;
@@ -193,6 +245,16 @@ class update_model extends model
 
                      updateData[11].value = "<?php echo $school['basis'];?>";
 
+                     updateData[12].value = "<?php echo $school['tto'];?>";
+
+                     updateData[13].value = "<?php echo $school['sport'];?>";
+
+                     updateData[14].value = "<?php echo $school['spanish'];?>";
+
+                     updateData[15].value = "<?php echo $school['technologie'];?>";
+
+                     updateData[16].value = "<?php echo $school['art'];?>";
+
                      //var special = document.getElementById("special").value;
                      //special = "<?php //echo $school['specials'];?>";
 
@@ -213,6 +275,294 @@ class update_model extends model
                  }
 
                }
+
+
+/************************************************************************************************************************************************************/
+
+/***********************************************************************************************************************************************************/
+
+                  public function display_open_day($schoolname){
+
+
+                    //$select = $this->prepare("SELECT*FROM more_input WHERE soort=? AND school_name=?",array("opendag",$schoolname));
+                    $select_day = $this->prepare("SELECT*FROM open_day WHERE school_name=?",array($schoolname));
+
+                    //$select_days = $select_day->fetch();
+
+                    while($display_days = $select_day->fetch()){
+
+                      if(isset($_POST['update'])){
+
+                          $this->prepare("UPDATE open_day SET date_openday=?, time_openday=? WHERE id=? ", array($_POST[$display_days['field_name_date']], $_POST[$display_days['field_name_time']], $display_days['id']));
+
+                      }
+
+
+                       ?>
+
+                          <script type="text/javascript">
+
+                          window.addEventListener("load", function(){
+
+                            var addinput = document.querySelectorAll(".addInput");
+                            var fieldset = document.querySelectorAll(".formulaire");
+
+                            var updateBox = document.querySelectorAll(".updateBox");
+
+                            var datetime = document.createElement("div");
+                            datetime.className = "dateTime";
+
+                            var inputDate = document.createElement("input");
+                            inputDate.className = "inputs";
+                            inputDate.type = "date";
+                            inputDate.name = "<?php echo $display_days['field_name_date'];?>";
+                            inputDate.placeholder = "Datum";
+                            inputDate.value = "<?php echo $display_days['date_openday'];?>";
+
+
+                            var inputTime = document.createElement("input");
+                            inputTime.className = "inputs";
+                            inputTime.type = "time";
+                            inputTime.name = "<?php echo $display_days['field_name_time'];?>";
+                            inputTime.placeholder = "Tijd";
+                            inputTime.value = "<?php echo $display_days['time_openday'];?>";
+
+                            var date_data = document.createElement("h3");
+                            date_data.className = "schoolData";
+                            date_data.innerHTML = 'Datum:  <?php echo $display_days['date_openday'];?>';
+
+                            var time_data = document.createElement("h3");
+                            time_data.className = "schoolData";
+                            time_data.innerHTML = 'Tijd:  <?php echo $display_days['time_openday'];?>';
+
+
+
+                            datetime.appendChild(inputDate);
+                            datetime.appendChild(inputTime);
+
+                            fieldset[8].appendChild(datetime);
+
+                            //fieldset[8].appendChild(date_data);
+                            //fieldset[8].appendChild(time_data);
+                            updateBox[4].appendChild(fieldset[9]);
+
+
+                           })
+
+                          </script>
+
+                       <?php
+
+                       
+
+                    }
+
+
+                  }
+
+      /***************************************************************************************************************************/
+
+
+                  public function display_open_class($schoolname){
+
+
+                    //$select = $this->prepare("SELECT*FROM more_input WHERE soort=? AND school_name=?",array("opendag",$schoolname));
+
+                    $select_class = $this->prepare("SELECT*FROM open_class WHERE school_name=?",array($schoolname));
+
+                    //$select_classes = $select_class->fetch();
+                    //$soort = htmlspecialchars($_POST['soort_field']);
+
+                    while($display_classes = $select_class->fetch()){
+
+                       ?>
+
+                          <script type="text/javascript">
+
+                          window.addEventListener("load", function(){
+
+                            var addinput = document.querySelectorAll(".addInput");
+                            var fieldset = document.querySelectorAll(".formulaire");
+
+                            var updateBox = document.querySelectorAll(".updateBox");
+
+                            var datetime = document.createElement("div");
+                            datetime.className = "dateTime";
+
+                            var inputDate = document.createElement("input");
+                            inputDate.className = "inputs";
+                            inputDate.type = "date";
+                            inputDate.name = "<?php echo $display_classes['field_name_date'];?>";
+                            inputDate.placeholder = "Datum";
+                            inputDate.value = "<?php echo $display_classes['date_openclass'];?>";
+
+                            var inputTime = document.createElement("input");
+                            inputTime.className = "inputs";
+                            inputTime.type = "time";
+                            inputTime.name = "<?php echo $display_classes['field_name_time'];?>";
+                            inputTime.placeholder = "Tijd";
+                            inputTime.value = "<?php echo $display_classes['time_openclass'];?>";
+
+                            var date_data = document.createElement("h3");
+                            date_data.className = "schoolData";
+                            date_data.innerHTML = 'Datum:  <?php echo $display_classes['date_openclass'];?>';
+
+                            var time_data = document.createElement("h3");
+                            time_data.className = "schoolData";
+                            time_data.innerHTML = 'Tijd:  <?php echo $display_classes['time_openclass'];?>';
+
+
+                            datetime.appendChild(inputDate);
+                            datetime.appendChild(inputTime);
+
+                            fieldset[10].appendChild(datetime);
+                            //fieldset[10].appendChild(date_data);
+                            //fieldset[10].appendChild(time_data);
+
+                            updateBox[5].appendChild(fieldset[11]);
+                            //fieldset[8].insertBefore(addinput[1], datetime);
+
+
+
+                           })
+
+                          </script>
+
+                       <?php
+
+
+                    }
+
+
+                  }
+
+
+    /*****************************************************************************************************************************/
+
+                  public function display_night_information($schoolname){
+
+
+                    //$select = $this->prepare("SELECT*FROM more_input WHERE soort=? AND school_name=?",array("opendag",$schoolname));
+
+                    $info_night = $this->prepare("SELECT*FROM info_night WHERE school_name=?",array($schoolname));
+
+                    //$info_nights = $info_night->fetch();
+                    //$soort = htmlspecialchars($_POST['soort_field']);
+
+                    while($display_night = $info_night->fetch()){
+
+                       ?>
+
+                          <script type="text/javascript">
+
+                          window.addEventListener("load", function(){
+
+                            var addinput = document.querySelectorAll(".addInput");
+                            var fieldset = document.querySelectorAll(".formulaire");
+
+                            var updateBox = document.querySelectorAll(".updateBox");
+
+                            var datetime = document.createElement("div");
+                            datetime.className = "dateTime";
+
+                            var inputDate = document.createElement("input");
+                            inputDate.className = "inputs";
+                            inputDate.type = "date";
+                            inputDate.name = "<?php echo $display_night['field_name_date'];?>";
+                            inputDate.placeholder = "Datum";
+                            inputDate.value = "<?php echo $display_night['date_infonight'];?>";
+
+                            var inputTime = document.createElement("input");
+                            inputTime.className = "inputs";
+                            inputTime.type = "time";
+                            inputTime.name = "<?php echo $display_night['field_name_time'];?>";
+                            inputTime.placeholder = "Tijd";
+                            inputTime.value = "<?php echo $display_night['time_infonight'];?>";
+
+                            var date_data = document.createElement("h3");
+                            date_data.className = "schoolData";
+                            date_data.innerHTML = 'Datum:  <?php echo $display_night['date_infonight'];?>';
+
+                            var time_data = document.createElement("h3");
+                            time_data.className = "schoolData";
+                            time_data.innerHTML = 'Tijd:  <?php echo $display_night['time_infonight'];?>';
+
+
+                            datetime.appendChild(inputDate);
+                            datetime.appendChild(inputTime);
+
+                            fieldset[12].appendChild(datetime);
+                            //fieldset[12].appendChild(date_data);
+                            //fieldset[12].appendChild(time_data);
+
+                            updateBox[6].appendChild(fieldset[13]);
+                            //fieldset[10].insertBefore(addinput[2], datetime);
+
+
+
+                           })
+
+                          </script>
+
+                       <?php
+
+
+                    }
+
+
+                  }
+
+      /********************************************************************************************************************************/
+
+
+      /********************************************************************************************************************************/
+
+
+                  public function visit($tablename,$schoolname,$date,$time,$index,$index2,$form_index,$box_index){
+
+
+                    $select = $this->prepare("SELECT*FROM $tablename WHERE school_name=?",array($schoolname));
+
+                    while($visit = $select->fetch()){
+
+                       ?>
+
+                           <script type="text/javascript">
+
+                              window.addEventListener("load", function(){
+
+                                //var inputs = document.querySelectorAll(".inputs_parent");
+
+                                var formulaire = document.querySelectorAll(".formulaire");
+
+                                var updateBox = document.querySelectorAll(".updateBox");
+
+                                var date = document.createElement("h3");
+                                date.className = "schoolData";
+                                date.innerHTML = "Date:  <?php echo $visit[$date];?>"+'   '+ "Time:  <?php echo $visit[$time];?>";
+
+                                /*var time = document.createElement("h3");
+                                time.className = "schoolData";
+                                time.innerHTML = "<?php echo $visit[$time];?>";*/
+
+                                formulaire['<?php echo $form_index?>'].appendChild(date);
+                              //  formulaire['<?php echo $form_index?>'].appendChild(time);
+                                updateBox['<?php echo $box_index;?>'].appendChild(formulaire['<?php echo $form_index?>']);
+
+                                //inputs['<?php echo $index?>'].value = "<?php echo $visit[$date];?>";
+                                //inputs['<?php echo $index2?>'].value = "<?php echo $visit[$time];?>";
+
+                              })
+
+                           </script>
+
+                       <?php
+
+                    }
+
+
+
+                  }
 
 
    }

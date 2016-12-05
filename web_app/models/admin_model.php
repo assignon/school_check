@@ -61,7 +61,7 @@
                    moreUpdate.className = "moreUpdateGrid";
 
 
-                   var schoolname = studentAvatar = document.createElement("h2");
+                   var schoolname =  document.createElement("h2");
                    schoolname.className = "schoolnameGrid";
                    schoolname.innerHTML = "<?php echo str_replace("_"," ",$student['schoolname']);?>";
 
@@ -74,26 +74,27 @@
                    update.className = "updateGrid";
                    update.innerHTML = "Update";
 
-                   var moreLink = document.createElement("a");
-                   moreLink.className = "moreLink";
-                   moreLink.href = "gegevens?id=<?php echo $_SESSION['id'];?>&schoolname=<?php echo $student['schoolname']; ?>";
+                   var schoolLink = document.createElement("a");
+                   schoolLink.className = "moreLink";
+                   schoolLink.href = "gegevens?id=<?php echo $_SESSION['id'];?>&schoolname=<?php echo $student['schoolname']; ?>";
 
-                   var more = document.createElement("button");
-                   more.className = "moreGrid";
-                   more.innerHTML = "Meer";
+                   var upload = document.createElement("button");
+                   upload.className = "moreGrid";
+                   upload.innerHTML = "Upload";
 
                    var delet = document.createElement("button");
                    delet.className = "deleteGrid";
                    delet.innerHTML = "Delete";
 
-                   moreLink.appendChild(more);
-                   moreUpdate.appendChild(moreLink);
+                   //moreLink.appendChild(more);
+                   moreUpdate.appendChild(upload);
                    updateLink.appendChild(update);
                    moreUpdate.appendChild(updateLink);
                    //moreUpdate.appendChild(update);
+                   schoolLink.appendChild(schoolname);
                    studentContainer.appendChild(delet);
                   // studentContainer.appendChild(studentAvatar);
-                   studentContainer.appendChild(schoolname);
+                   studentContainer.appendChild(schoolLink);
                    studentContainer.appendChild(moreUpdate);
 
 
@@ -303,65 +304,146 @@
      public function display_school_list(){
 
 
-        $select = $this->getPDO()->query("SELECT*FROM schools");
+       $select = $this->getPDO()->query("SELECT*FROM schools");
 
-        while($student = $select->fetch()){
+       while($school = $select->fetch()){
 
-            ?>
+           ?>
 
-               <script type="text/javascript">
+              <script type="text/javascript">
 
-                 window.addEventListener("load", function(){
+                window.addEventListener("load", function(){
 
-                   var grid = document.getElementById("gridOption");
+                  var list = document.getElementById("listOption");
 
-                   var studentContainer = document.createElement("div");
-                   studentContainer.className = "studentContainer";
-
-                   var studentAvatar = document.createElement("img");
-                   studentAvatar.className = "studentAvatar";
-                   studentAvatar.src = "";
-
-                   var schoolname = studentAvatar = document.createElement("h2");
-                   schoolname.className = "schoolname";
-                   schoolname.innerHTML = "<?php echo $student['schoolname'].' '.$student['id'];?>";
-
-                   var update = document.createElement("button");
-                   update.className = "update";
-                   update.innerHTML = "Update";
-
-                   var delet = document.createElement("button");
-                   delet.className = "delete";
-                   delet.innerHTML = "Delete";
-
-                   studentContainer.appendChild(studentAvatar);
-                   studentContainer.appendChild(schoolname);
-                   studentContainer.appendChild(update);
-                   studentContainer.appendChild(delet);
-
-                  // grid.appendChild(studentContainer);
-
-                  delet.addEventListener("click", function(){
-                      //alert("<?php //echo $student['id'];?>")
-                       var deleteForm = document.getElementById("deleteForm");
-                       var schoolId = document.getElementById("schoolId");
+                  var close = document.getElementById("close");
+                  var windowH = window.pageYOffset;
 
 
-                       schoolId.value = "<?php echo $student['id'];?>";
+                  var deleteForm = document.getElementById("deleteForm");
+                  var schoolId = document.getElementById("schoolId");
+                  var schoolNAME = document.getElementById("schoolNAME");
+                  var updateId = document.getElementById("update_id");
 
-                       deleteForm.style.top = "400px";
+                  var studentContainer = document.createElement("div");
+                  studentContainer.className = "studentContainerList";
+
+                /*  var moreUpdate = document.createElement("div");
+                  moreUpdate.className = "moreUpdateList";*/
+
+
+                  var schoolname =  document.createElement("h2");
+                  schoolname.className = "schoolnameList";
+                  schoolname.innerHTML = "<?php echo str_replace("_"," ",$school['schoolname']);?>";
+
+                  var updateLink = document.createElement("a");
+                  updateLink.className = "updateLink";
+
+                  updateLink.href = "update?id=<?php echo $_SESSION['id'];?>&schoolname=<?php echo $school['schoolname']; ?>&schoolid=<?php echo $school['id'];?>";
+
+                  var update = document.createElement("button");
+                  update.className = "updateList";
+                  update.innerHTML = "Update";
+
+                  var schoolLink = document.createElement("a");
+                  schoolLink.className = "schoolLink";
+                  schoolLink.href = "gegevens?id=<?php echo $_SESSION['id'];?>&schoolname=<?php echo $school['schoolname']; ?>";
+
+                  var upload = document.createElement("button");
+                  upload.className = "moreList";
+                  upload.innerHTML = "Upload";
+
+                  var delet = document.createElement("button");
+                  delet.className = "deleteList";
+                  delet.innerHTML = "Delete";
+
+                  //moreLink.appendChild(more);
+
+                  updateLink.appendChild(update);
+                //  moreUpdate.appendChild(updateLink);
+                //  moreUpdate.appendChild(upload);
+                  //moreUpdate.appendChild(update);
+                  schoolLink.appendChild(schoolname);
+                 // studentContainer.appendChild(studentAvatar);
+                  studentContainer.appendChild(schoolLink);
+                  studentContainer.appendChild(updateLink);
+                  studentContainer.appendChild(delet);
+                  studentContainer.appendChild(upload);
+
+
+                  list.appendChild(studentContainer);
 
 
 
-                 })
+                 delet.addEventListener("click", function(e){
 
-               </script>
+                      var target = e.target.offsetTop;
 
-            <?php
+                      $(function(){
 
-        }
 
-     }
+                          $(deleteForm).animate({
+
+                            top:target+800,
+                            marginBottom: -200,
+
+                          },{
+
+                            duration: 1000,
+                            easing: "easeOutBounce",
+
+                          })
+
+
+                      })
+
+                      schoolId.value = "<?php echo $school['id'];?>";
+                      schoolNAME.value = "<?php echo $school['schoolname'];?>";
+
+
+                  })
+
+                  update.addEventListener("click", function(e){
+
+
+                       var target = e.target.offsetTop;
+
+
+
+                   })
+
+                  close.addEventListener("click", function() {
+
+                    $(function(){
+
+
+                        $(deleteForm).animate({
+
+                          top:0,
+                          marginBottom: -400,
+
+                        },{
+
+                          duration: 200,
+                          easing: "easeInOutBounce",
+
+                        })
+
+
+                    })
+
+                  })
+
+
+                })
+
+              </script>
+
+           <?php
+
+       }
+
+   }
 
 
      public function delete_school(){
