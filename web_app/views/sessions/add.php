@@ -24,9 +24,11 @@
          /*$add->display_open_day();
          $add->display_open_class();
          $add->display_night_information();*/
-         $add->addAfter('add_levels','addLevel','level','vvalue','level_name','lavel_value');
-         $add->display_level();
-         $add->allschool('schoolname');
+         $add->addAfter('add_levels','addLevel','value','levels','level_value','school_name');
+         //$add->display_level();
+         $add->allschool('schoolname','allschool');
+         $add->allschool('schoolname','levelsOption');
+         //$add->select_from_excel();
         // $add->test();
 
 

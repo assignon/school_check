@@ -65,7 +65,8 @@ session_start();
             $_SESSION['password'] = $users['password'];
 
                $this->error("aangemaakt");
-             header("Location: admin?id=".$_SESSION['id']);
+             //header("Location: admin?id=".$_SESSION['id']);
+             header("Location: welcom.php?action=admin&id=".$_SESSION['id']);
 
           }else{
 
@@ -102,7 +103,7 @@ session_start();
             if($img_size <= $uploadfile_size){
 
               if(move_uploaded_file($img_tmp,$img_path)){
-                  
+
 
                   $this->prepare("UPDATE  user_avatar SET image_src=?", array($img_path));
 

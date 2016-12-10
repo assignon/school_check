@@ -35,7 +35,7 @@
 
         $select = $this->getPDO()->query("SELECT*FROM schools");
 
-        while($student = $select->fetch()){
+        while($school = $select->fetch()){
 
             ?>
 
@@ -63,12 +63,12 @@
 
                    var schoolname =  document.createElement("h2");
                    schoolname.className = "schoolnameGrid";
-                   schoolname.innerHTML = "<?php echo str_replace("_"," ",$student['schoolname']);?>";
+                   schoolname.innerHTML = "<?php echo str_replace("_"," ",$school['schoolname']);?>";
 
                    var updateLink = document.createElement("a");
                    updateLink.className = "updateLink";
 
-                   updateLink.href = "update?id=<?php echo $_SESSION['id'];?>&schoolname=<?php echo $student['schoolname']; ?>&schoolid=<?php echo $student['id'];?>";
+                   updateLink.href = "welcom.php?action=update&id=<?php echo $_SESSION['id'];?>&schoolname=<?php echo $school['schoolname']; ?>&schoolid=<?php echo $school['id'];?>";
 
                    var update = document.createElement("button");
                    update.className = "updateGrid";
@@ -76,18 +76,23 @@
 
                    var schoolLink = document.createElement("a");
                    schoolLink.className = "moreLink";
-                   schoolLink.href = "gegevens?id=<?php echo $_SESSION['id'];?>&schoolname=<?php echo $student['schoolname']; ?>";
+                   schoolLink.href = "welcom.php?action=data&id=<?php echo $_SESSION['id'];?>&schoolname=<?php echo $school['schoolname']; ?>";
+
+                   var uploadLink = document.createElement("a");
+                   uploadLink.className = "uploadLink";
+                   uploadLink.href = "welcom.php?action=datacheck&id=<?php echo $_SESSION['id'];?>&schoolname=<?php echo $school['schoolname']; ?>";
+
 
                    var upload = document.createElement("button");
-                   upload.className = "moreGrid";
+                   upload.className = "uploadGrid";
                    upload.innerHTML = "Upload";
 
                    var delet = document.createElement("button");
                    delet.className = "deleteGrid";
                    delet.innerHTML = "Delete";
 
-                   //moreLink.appendChild(more);
-                   moreUpdate.appendChild(upload);
+                   uploadLink.appendChild(upload);
+                   moreUpdate.appendChild(uploadLink);
                    updateLink.appendChild(update);
                    moreUpdate.appendChild(updateLink);
                    //moreUpdate.appendChild(update);
@@ -99,6 +104,8 @@
 
 
                    grid.appendChild(studentContainer);
+
+
 
 
 
@@ -124,8 +131,8 @@
 
                        })
 
-                       schoolId.value = "<?php echo $student['id'];?>";
-                       schoolNAME.value = "<?php echo $student['schoolname'];?>";
+                       schoolId.value = "<?php echo $school['id'];?>";
+                       schoolNAME.value = "<?php echo $school['schoolname'];?>";
 
 
                    })
@@ -167,6 +174,8 @@
                </script>
 
             <?php
+
+
 
         }
 
@@ -467,6 +476,8 @@
                 if($id == $id_check['id'] AND $school_name == $id_check['schoolname']){
 
                  $this->prepare("DELETE FROM schools WHERE id=?",array($id));
+                 $this->prepare("DELETE FROM levels_data WHERE school_name=?",array($school_name));
+                 $this->prepare("DELETE FROM levels_data WHERE school_name=?",array($school_name));
                  $this->prepare("DELETE FROM open_day WHERE school_name=?",array($school_name));
                  $this->prepare("DELETE FROM open_class WHERE school_name=?",array($school_name));
                  $this->prepare("DELETE FROM info_night WHERE school_name=?",array($school_name));

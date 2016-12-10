@@ -277,6 +277,63 @@ class update_model extends model
                }
 
 
+               /*************************************************************************************************************************************************/
+               /*******************************************************************************************************************************************************/
+
+
+               public function updateLevels($schoolname,$tablename,$level_row){
+
+
+                  $select = $this->prepare("SELECT*FROM $tablename WHERE school_name=?", array($schoolname));
+                  while($display_level = $select->fetch()){
+
+                    if(isset($_POST['update'])){
+
+
+                      $this->prepare("UPDATE $tablename SET $level_row=? WHERE id=?", array($_POST[$display_level[$level_row]],$display_level['id']));
+
+
+                    }
+
+                    ?>
+
+                       <script type="text/javascript">
+
+                          window.addEventListener("load", function(){
+
+                             var updateLevel = document.getElementById("updateLevels");
+                             var inputLevel = document.getElementById("levelsInput");
+                             var levelData = document.getElementById("levelsData");
+
+                             var input = document.createElement("input");
+                             input.type = "text";
+                             input.name = "<?php echo $display_level[$level_row];?>";
+                             input.value = "<?php echo $display_level[$level_row];?>";
+
+
+
+                             var levelVal = document.createElement("h3");
+                             levelVal.className = "schoolData";
+                             levelVal.innerHTML = "<?php echo $display_level[$level_row];?>";
+
+                             inputLevel.appendChild(input);
+                             levelData.appendChild(levelVal);
+
+
+
+                          })
+
+                       </script>
+
+                    <?php
+
+
+                  }
+
+
+               }
+
+
 /************************************************************************************************************************************************************/
 
 /***********************************************************************************************************************************************************/
@@ -340,11 +397,11 @@ class update_model extends model
                             datetime.appendChild(inputDate);
                             datetime.appendChild(inputTime);
 
-                            fieldset[8].appendChild(datetime);
+                            fieldset[10].appendChild(datetime);
 
                             //fieldset[8].appendChild(date_data);
                             //fieldset[8].appendChild(time_data);
-                            updateBox[4].appendChild(fieldset[9]);
+                            updateBox[5].appendChild(fieldset[11]);
 
 
                            })
@@ -353,7 +410,7 @@ class update_model extends model
 
                        <?php
 
-                       
+
 
                     }
 
@@ -415,11 +472,11 @@ class update_model extends model
                             datetime.appendChild(inputDate);
                             datetime.appendChild(inputTime);
 
-                            fieldset[10].appendChild(datetime);
+                            fieldset[12].appendChild(datetime);
                             //fieldset[10].appendChild(date_data);
                             //fieldset[10].appendChild(time_data);
 
-                            updateBox[5].appendChild(fieldset[11]);
+                            updateBox[6].appendChild(fieldset[13]);
                             //fieldset[8].insertBefore(addinput[1], datetime);
 
 
@@ -460,6 +517,9 @@ class update_model extends model
                             var addinput = document.querySelectorAll(".addInput");
                             var fieldset = document.querySelectorAll(".formulaire");
 
+                            var pkind = document.querySelector(".pKind");
+                            pkind.value = "<?php echo $display_night['parents_kind'];?>";
+
                             var updateBox = document.querySelectorAll(".updateBox");
 
                             var datetime = document.createElement("div");
@@ -491,11 +551,11 @@ class update_model extends model
                             datetime.appendChild(inputDate);
                             datetime.appendChild(inputTime);
 
-                            fieldset[12].appendChild(datetime);
+                            fieldset[14].appendChild(datetime);
                             //fieldset[12].appendChild(date_data);
                             //fieldset[12].appendChild(time_data);
 
-                            updateBox[6].appendChild(fieldset[13]);
+                            updateBox[7].appendChild(fieldset[15]);
                             //fieldset[10].insertBefore(addinput[2], datetime);
 
 
@@ -525,32 +585,31 @@ class update_model extends model
 
                     while($visit = $select->fetch()){
 
+                    
                        ?>
 
                            <script type="text/javascript">
 
                               window.addEventListener("load", function(){
 
-                                //var inputs = document.querySelectorAll(".inputs_parent");
 
                                 var formulaire = document.querySelectorAll(".formulaire");
 
                                 var updateBox = document.querySelectorAll(".updateBox");
 
-                                var date = document.createElement("h3");
-                                date.className = "schoolData";
-                                date.innerHTML = "Date:  <?php echo $visit[$date];?>"+'   '+ "Time:  <?php echo $visit[$time];?>";
-
-                                /*var time = document.createElement("h3");
+                                /*var kparent = document.createElement("h3");
                                 time.className = "schoolData";
                                 time.innerHTML = "<?php echo $visit[$time];?>";*/
 
-                                formulaire['<?php echo $form_index?>'].appendChild(date);
-                              //  formulaire['<?php echo $form_index?>'].appendChild(time);
-                                updateBox['<?php echo $box_index;?>'].appendChild(formulaire['<?php echo $form_index?>']);
+                                var date = document.createElement("h3");
+                                date.className = "schoolData";
+                                date.innerHTML = "Date:  <?php echo $visit[$date];?>"+'   '+ "Time  <?php echo $visit[$time];?>";
 
-                                //inputs['<?php echo $index?>'].value = "<?php echo $visit[$date];?>";
-                                //inputs['<?php echo $index2?>'].value = "<?php echo $visit[$time];?>";
+
+
+                                formulaire['<?php echo $form_index?>'].appendChild(date);
+
+                                updateBox['<?php echo $box_index;?>'].appendChild(formulaire['<?php echo $form_index?>']);
 
                               })
 
@@ -563,6 +622,8 @@ class update_model extends model
 
 
                   }
+
+
 
 
    }

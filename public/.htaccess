@@ -1,8 +1,0 @@
-options -MultiViews
-
-
-RewriteEngine on
-RewriteBase /leerjaar2/projecten/schoolCheck/public
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.+)$ welcom.php?url=$1 [QSA,L]

@@ -6,10 +6,10 @@
 		<meta name="description" content=""/>
 		<meta name="author" content="Yanick 007"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/css/add.css"/>
+    <link rel="stylesheet" href="../public/css/add.css"/>
     <!--<link rel="stylesheet" href="../../public/css/global_style/footer.css"/>-->
     <!--<link rel="stylesheet" href="../../public/css/global_style/leader_info.css"/>-->
-    <script src="../../public/javascript/add.js"></script>
+    <script src="../public/javascript/add.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
@@ -22,7 +22,7 @@
 
 
 
-          <a href="admin?id=<?php echo $_SESSION['id'];?>"><button>Naar de admin Page</button></a>
+          <a href="welcom.php?action=admin&id=<?php echo $_SESSION['id'];?>"><button>Naar de admin Page</button></a>
 
           <div id="addContainer">
 
@@ -173,7 +173,7 @@
                   <fieldset class="opens">
                     <legend>Open Dagen, Klassen en Nacht Informatie</legend>
 
-                      <p>Als u meerder open dagen, klassen of nacht informatie hebben, kunt u helemaal onderaan op de Blauwe knoop(waarop meer opties staat) door middel van een formulier meer toevoegen.</p>
+                      <p>Als u meerdere open dagen, klassen of avonden data's heeft, kunt u helemaal onderaan op de Blauwe knop (waar meer opties staan) door middel van een formulier toevoegen.</p>
                       <div class="fieldsets">
 
 
@@ -236,6 +236,16 @@
                     <fieldset id="levels">
                      <legend>Niveau </legend>
 
+                     <input type="checkbox" name="check_levels[]" value="praktijk"><p>Praktij</p>
+                     <input type="checkbox" name="check_levels[]" value="vmbob"><p>Vmbo-B</p>
+                     <input type="checkbox" name="check_levels[]" value="vmbok"><p>Vmbo-K</p>
+                     <input type="checkbox" name="check_levels[]" value="vmbot"><p>Vmbo-T/Mavo</p>
+                     <input type="checkbox" name="check_levels[]" value="havo"><p>Havo</p>
+                     <input type="checkbox" name="check_levels[]" value="vwo"><p>Vwo</p>
+                     <input type="checkbox" name="check_levels[]" value="gymnasium"><p>Gymnasium</p>
+                     <input type="checkbox" name="check_levels[]" value="lwoo"><p>Lwoo</p>
+
+
 
                     </fieldset>
 
@@ -261,8 +271,14 @@
 
                   <form  action="" method="post">
 
-                     <input type="text" name="level" placeholder="Niveau Naam">
+
                      <input type="text" name="value" placeholder="Niveau Waarde">
+                     <select id="levelsOption" name="levels">
+
+                       <option value="">Selecteer de bijhorende school</option>
+
+                     </select>
+
                      <input type="submit" name="addLevel" value="Toevoegen">
 
                   </form>

@@ -1,0 +1,539 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Dosis", sans-serif;
+}
+
+/*Menu*/
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    font-family: "Source Sans Pro", sans-serif;
+box-shadow: inset 0px -12px 37px -18px rgba(0,0,0,0.75);
+}
+
+ul.topnav li {
+    float: left;
+    
+}
+
+ul.topnav li a {
+    display: inline-block;
+    color: steelblue;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    font-size: 17px;
+    line-height: 50px;
+}
+
+ul.topnav li a:hover {
+    background-color: steelblue;
+    color: white;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+ul.topnav li.icon {
+    display: none;
+}
+
+/*Meida queries voor mobiel menu*/
+@media screen and (max-width: 680px) {
+    ul.topnav li:not(:first-child) {
+        display: none;
+    }
+    ul.topnav li.icon {
+        float: right;
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    ul.topnav.responsive {
+        position: relative;
+    }
+    ul.topnav.responsive li.icon {
+        position: absolute;
+        line-height: auto;
+        right: 0;
+        top: 0;
+    }
+    ul.topnav.responsive li {
+        float: none;
+        display: inline;
+    }
+    ul.topnav.responsive li a {
+        display: block;
+        text-align: left;
+        line-height: auto;    
+    }
+}
+
+/*Einde meu*/
+.achtergrond {
+     background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 14px 37px -18px rgba(0,0,0,0.75);
+    transition: 0.3s ease-in-out;
+}
+
+.eerste {
+    background: url(Afbeeldingen/beginafb.jpg) repeat fixed 100%;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 14px 37px -18px rgba(0,0,0,0.75);
+}
+
+.tweede {
+    background: url(Afbeeldingen/beginafb2.jpg) repeat fixed 100%;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 14px 37px -18px rgba(0,0,0,0.75) repeat fixed 100%;
+}
+
+.derde {
+    background: url(Afbeeldingen/beginafb3.jpg) repeat fixed 100%;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 14px 37px -18px rgba(0,0,0,0.75);
+}
+
+.vierde {
+    background: url(Afbeeldingen/beginafb4.jpg) repeat fixed 100%;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 14px 37px -18px rgba(0,0,0,0.75);
+}
+
+/*Intro tekst gedeelde*/
+.inner-achtergrond {
+    background: rgba(0, 0, 0, 0.5);
+    padding-top: 7%;
+    padding-bottom: 7%;
+}
+
+.introtekst {
+    color: white;
+    font-family: "Dosis", sans-serif;
+    text-align: center;
+    font-size: 350%;
+    
+}
+/*Einde intro*/
+
+/*Content*/
+.keuze {
+    margin-top: 5%;    
+    display: -webkit-box;    
+    display: -ms-flexbox;    
+    display: flex;
+    -ms-flex-pack: distribute;
+        -webkit-box-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    -webkit-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+}
+
+.linkjes {
+    text-decoration: none;
+    color: steelblue;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+
+
+.opties {
+    margin: 20px;
+    width: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    -webkit-animation: fadeinout 2s forwards;
+            animation: fadeinout 2s forwards;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.opties:hover {
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2), 0 10px 30px 0 rgba(0, 0, 0, 0.19);
+}
+
+@-webkit-keyframes fadeinout {
+    50% {
+        opacity: 0.7;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+    100% {
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+}
+
+@keyframes fadeinout {
+    50% {
+        opacity: 0.7;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+    100% {
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+}
+
+.optietekst {
+    font-family: "Dosis", sans-serif;
+    color: white;
+    margin-top: 1px;
+    height: 70px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    line-height: 60px;
+    background: steelblue;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.optietekst p {
+    text-align: center;
+}
+
+/*Meida queries voor de mobiel intro gedeelde*/
+@media screen and (max-width: 680px) {
+    .introtekst {
+        font-size: 150%;
+    }
+    .inner-achtergrond {
+        padding-bottom: 10%;
+        padding-top: 10%;
+    }
+    .opties {
+        width: 85%;
+        -webkit-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+    }
+}
+/*Einde content */
+
+/*Contetn vind */
+.optievind {
+    color: steelblue;
+    margin: 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+}
+
+
+.parent {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    height: auto;
+}
+
+.optieuitleg {
+    background: steelblue;
+    color: white;
+    width: 30%;
+    height: auto;
+    font-family: "Dosis", sans-serif;
+    font-size: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    margin: 8px 2px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.optieuitleg p {
+    padding: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.optieuitleg:hover {
+    background: white;
+    color: steelblue;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+.verzend{
+    background: steelblue;
+    color: white;
+    font-family: "Dosis", sans-serif;
+    height: 50px;
+    width: 26.5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 0 auto;
+    font-size: 200%;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation: fadeinout 2s forwards;
+    animation: fadeinout 2s forwards;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;    
+    -ms-flex-wrap: wrap;    
+        flex-wrap: wrap;
+}
+
+.verzend:hover {
+    background: white;
+    color: steelblue;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 680px) {
+    .verzend {
+        width: 85%;
+    }
+}
+
+
+.scholen {
+    
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 20px;
+    width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    -webkit-animation: fadeinout 2s forwards;
+            animation: fadeinout 2s forwards;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    text-align: center;
+}
+
+.top {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    transition: 0.5s ease-in-out;
+}
+
+.scholen h2 {
+    line-height: px;
+    margin-left: 5%;
+    -webkit-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    text-align: center;
+}
+
+
+.scholen:after {
+    content: '';
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    
+}
+.scholen img {
+    width:100px; 
+    height:100px;
+}
+
+@media screen and (max-width: 680px) {
+    .scholen h2 {
+        font-size: 120%;   
+    }
+    
+    .scholen img {
+        width:75px;
+        height: 75px;
+    }
+}
+
+.informatie {
+    border: 1px solid black;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.top h2 {
+    width: auto;
+}
+
+.schoolafb {
+    width: 400px;
+    height: 250px;
+}
+
+.tekstschool {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.informatietekst {
+    width: 40%;
+    
+}
+
+/*Informatie voor de individuele scholen*/
+.titleschool {
+    font-size: 300%;
+    color: steelblue;
+}
+
+.plaatsen {
+    display: flex;
+    flex-direction: column;
+
+    width: 70%;
+}
+.contact {
+    font-size: 125%;
+    color: darkslategrey;
+}
+.ominfoheen {
+    display: flex;
+}
+
+.ominfoheen ul li {
+    list-style-type: none;
+    color: steelblue;
+}
+
+.container-info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.omallesheen {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 680px){
+    .contact {
+        font-size: 100%;
+    }
+    
+    .titleschool {
+        font-size: 250%;
+        color: steel;
+        text-align: center;
+    }
+}
+
+.iconafb {
+    width: 20%;
+ 
+}
+
+/*Footer*/
+footer {
+    background: white;
+    margin: 0;
+    padding: 0;
+    color: steelblue;
+    font-family: "Source Sans Pro", sans-serif;
+    text-align: center;
+    margin-top: 100px;
+    box-shadow: inset 0 10px 10px -10px grey;
+}
+/*Footer*/
+
+
+
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 6px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.actief, .dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+    transition: 0.3s ease-in-out;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .7} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .7} 
+  to {opacity: 1}
+}
+

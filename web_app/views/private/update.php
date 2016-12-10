@@ -6,10 +6,10 @@
 		<meta name="description" content=""/>
 		<meta name="author" content="Yanick 007"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/css/update.css"/>
+    <link rel="stylesheet" href="../public/css/update.css"/>
     <!--<link rel="stylesheet" href="../../public/css/global_style/footer.css"/>-->
     <!--<link rel="stylesheet" href="../../public/css/global_style/leader_info.css"/>-->
-    <script src="../../public/javascript/update.js"></script>
+    <script src="../public/javascript/update.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
@@ -20,7 +20,7 @@
 
        <header>
 
-         <a href="admin?id=<?php echo $_SESSION['id'];?>"><button>Naar de admin Page</button></a>
+         <a href="welcom.php?action=admin&id=<?php echo $_SESSION['id'];?>"><button>Naar de admin Page</button></a>
 
          <div id="updateContainer">
 
@@ -196,6 +196,18 @@
                </div>
 
                <div class="formulaire">
+
+               </div>
+
+             </div>
+
+             <div class="updateBox"id="updateLevels">
+
+               <div class="formulaire" id="levelsInput">
+
+               </div>
+
+               <div class="formulaire" id="levelsData">
 
                </div>
 

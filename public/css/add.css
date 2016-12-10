@@ -442,6 +442,21 @@ font-size: 20px;
 
 }
 
+#levels input{
+
+  margin-left: 25px;
+
+
+}
+
+#levels p{
+
+  color: #0375B4;
+
+}
+
+
+
 .checkboxContainer{
 
   display: flex;

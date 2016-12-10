@@ -1,0 +1,209 @@
+body, html{
+
+  padding: 0px;
+  margin: 0px;
+}
+
+#info{
+
+  text-align: center;
+  color: #0375B4;
+  margin: auto;
+  position: relative;
+  top: 50px;
+  width: 80%;
+
+}
+
+#datas{
+
+  width: 100%;
+  height: auto;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+#data{
+
+  width: auto;
+  height: auto;  
+  
+}
+
+#data form{
+    
+  width: auto;
+  height: auto;
+    
+}
+
+#data form table{
+    
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    
+}
+
+#data form table tr, td, th{
+    
+    width: auto;
+    height: auto;
+    padding: 10px;
+    border: 1px solid #0375B4;
+    border-collapse: collapse;
+    border-radius: 3px;
+    
+}
+
+#data form table tr td{
+    
+    background-color: #0375B4;
+    
+}
+
+#data form table tr th{
+    
+    background-color: whitesmoke;
+    color: #0375B4;
+}
+
+#data form table tr input{
+    
+    /*position: absolute;*/
+    width: 240px;
+    height: 30px;
+    color: white;
+    font-size: 16px;
+    border: 1px solid #0375B4;
+    border-radius: 3px;
+    background-color: #0375B4;
+    text-align: center;
+}
+
+#data form table tr a{
+    
+    text-decoration: none;
+    
+}
+
+#data form table tr p{
+    
+    position: relative;
+    bottom: 49px;
+    left: 1px;
+    width: 240px;
+    height: 40px;
+    overflow:hidden;
+    color: white;
+    font-size: 16px;
+    border-radius: 3px;
+    background-color: #0375B4;
+    text-align: center;
+    margin-bottom: -44px;
+    
+}
+
+.level{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: auto;
+    border: 1px solid crimson;
+    border-radius: 3px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    
+    
+}
+
+.level tr, td{
+    
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+    background-color: crimson;
+    color: white;
+    border: 0px solid crimson;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.levelLegend{
+    
+    color: crimson;
+    font-size: 16px;
+    text-align: center;
+    
+}
+
+.tableNiv{
+    
+    
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;7
+    
+}
+
+.tableNiv table{
+    
+  
+}
+
+.level input{
+    
+    width: 200px;
+    height: 30px;
+    color: white;
+    font-size: 16px;
+    border: 1px solid crimson;
+    border-radius: 3px;
+    background-color: crimson;
+    text-align: center;
+    
+}
+
+.level p{
+    
+    position: relative;
+    bottom: 49px;
+    left: 1px;
+    width: 200px;
+    height: 40px;
+    overflow:hidden;
+    color: white;
+    font-size: 20px;
+    border-radius: 3px;
+    background-color: crimson;
+    text-align: center;
+    margin-bottom: -44px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
