@@ -337,16 +337,16 @@ class add_model extends model
 
 
 
-        $selectday = $this->prepare("SELECT*FROM more_input WHERE soort=?", array("opendag"));
+      /*  $selectday = $this->prepare("SELECT*FROM more_input WHERE soort=?", array("opendag"));
         $openday = $selectday->fetch();
 
         $selectclass = $this->prepare("SELECT*FROM more_input WHERE soort=?", array("openklas"));
         $openclass = $selectclass->fetch();
 
         $selectinfo_night = $this->prepare("SELECT*FROM more_input WHERE soort=?", array("informatienacht"));
-        $openinfo_night = $selectinfo_night->fetch();
+        $openinfo_night = $selectinfo_night->fetch();*/
 
-        $levels = $_POST['check_levels'];
+
 
 
         $select_level = $this->getPDO()->query("SELECT*FROM add_levels");
@@ -372,13 +372,19 @@ class add_model extends model
 
             $this->prepare("INSERT INTO night_information(date_infonight,time_infonight,parents_kind,school_name) VALUES(?,?,?,?)",array($old_infonight_date,$old_infonight_time,$kParent,$school_name));
 
+            if(isset($_POST['check_levels'])){
 
-             foreach ($levels as $values) {
+              $levels = $_POST['check_levels'];
+              foreach ($levels as $values) {
 
-                $this->prepare("INSERT INTO levels_data(levels_name, school_name) VALUES(?,?)", array($values,$school_name));
+                 $this->prepare("INSERT INTO levels_data(levels_name, school_name) VALUES(?,?)", array($values,$school_name));
 
-             }
-          
+              }
+
+
+            }
+
+
 
             $this->succes("School met succes toegevoegd");
 
@@ -420,16 +426,10 @@ class add_model extends model
 
             $row = $select->rowCount();
 
-            if($row == 0){
-
                $this->prepare("INSERT INTO $table_name($row_name,$row_name2) VALUES(?,?)", array($this->item_name,$this->item_name2));
               $this->succes("Toegevoegd");
 
-            }else{
 
-              $this->error("Bestaat Al");
-
-            }
 
 
          }

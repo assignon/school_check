@@ -26,7 +26,8 @@
 
           <div id="addContainer">
 
-            <p id="error"> Welkom Door deze Formulier In Te Vulen, Voegt U Neieuw School Toe</p>
+            <p id="error"> Welkom Door deze Formulier In Te Vulen, Voegt U Nieuw School Toe</p>
+            <p id="inform">Op de velden waar een stertje(*) vvor staat, beteken dat die velden gevuld moeten worden. De rest waar geen * voor staat, kunnen jullie na de toevoeging via de update pagina of helemaal onderaan(op de meer opties knop) bij de toevoeg pagina nog vullen.</p>
 
            <form id="addSchool" action="" method="post">
 
@@ -217,7 +218,7 @@
 
                             </div>
 
-                            <select name="kind_parent" class="pKind" >
+                            <select name="kind_parent" class="pKind">
 
                                 <option value="">Kies uit allen ouders of ouders en student</option>
                                 <option value="parent">Ouders</option>

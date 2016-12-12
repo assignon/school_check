@@ -24,7 +24,7 @@
 
            <div id="adminContainer">
 
-             <h2 id="error">Welkom op de ADMINISTRATOR pagina</h2>
+             <h2 id="error">Welkom op de LOGIN pagina</h2>
 
                <img src="../public/images/user_avatar/adminAvatar.png" alt="" id="userAvatar">
 
@@ -61,12 +61,6 @@
 
                </div>
 
-
-
-               <button class="parameters">
-
-
-               </button>
 
            </div>
 

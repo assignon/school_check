@@ -3,6 +3,26 @@ window.addEventListener("load", function(){
     var add = document.getElementById("add");
     var nieuSchool = document.getElementById("addSchool");
 
+    var pagination = document.querySelectorAll(".pagination");
+
+    for (var i = 0; i < pagination.length; i++) {
+
+      var paginationArr = pagination[i];
+
+      paginationArr.addEventListener("click", function(e){
+
+     //alert(e.target.href);
+         e.target.style.backgroundColor = "white";
+         e.target.style.color = "#0375B4";
+
+         paginationArr.style.backgroundColor = "#0375B4";
+         paginationArr.style.color = "white";
+
+
+      })
+
+    }
+
 
 
     $(function(){

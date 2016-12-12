@@ -1,9 +1,12 @@
+<div class="global">
+
 <section class="keuze">
 
 <?php
 
 include 'model/select-from.php';
-   
+
+
 while($row = $result ->fetch_assoc()){
     $schoolUpper = ucwords($row['schoolname']);
     $schoolReplace = str_replace('_', ' ', $schoolUpper);
@@ -17,9 +20,29 @@ while($row = $result ->fetch_assoc()){
     echo '</div>';
     echo '</a>';
 }
+
    ?>
-   
-   
+
+
 </section>
 
+<div class="paginations">
 
+  <?php
+
+  for ($i=1; $i <= $aantal_Pagina; $i++) {
+    ?>
+
+
+            <a href="index.php?action=bekijk&p=<?php echo $i;?>" class="pagination"><?php echo $i; ?></a>
+
+
+    <?php
+    //echo " <a href=\"welcom.php?action=admin$id=$_SESSION['id']&p=$i\" class='paginate'>$i</a> ";
+  }
+
+   ?>
+
+</div>
+
+</div>

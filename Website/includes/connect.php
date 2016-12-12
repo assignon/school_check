@@ -4,7 +4,7 @@ define ('DB_NAME' ,'schoolkeuze');
 define ('DB_USERNAME', 'root');
 define ('DB_PASSWORD', '');
 
-$conn = mysqli_connect('localhost', 'root', '', 'school_cms');
+$conn = mysqli_connect('localhost', 'root', '', 'schoolcheck_cms');
 
 if(!$conn){
     die("Connection failed: ". mysqli_connect_error());

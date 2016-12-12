@@ -21,15 +21,16 @@
         $admin->delete_school();
         $admin->display_school_grid();
         $admin->display_school_list();
+        $admin->admin_avatar();
 
-
+       
 
 
      }else{
 
         echo "U hebt geen toegaan tot deze pagine! Graag account aanmaken";
         ?>
-            <a href="login">Login page</a>
+            <a href="welcom.php?action=login">Login page</a>
         <?php
 
      }

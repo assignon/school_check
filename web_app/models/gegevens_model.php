@@ -1,4 +1,4 @@
-a <?php
+ <?php
 
 require "../web_app/core/model.php";
 /**
@@ -254,10 +254,21 @@ class gegevens_model extends model
             $art = htmlspecialchars($_POST['art']);
 
 
+            $select = $this->prepare("SELECT*FROM online WHERE schoolname=?", array($school_name));
+            $online_count = $select->rowCount();
+
+            if($online_count == 0){
+
               $this->prepare("INSERT INTO online(schoolname, adress, zipcode, street_number, district, telnr, email, website, private, concept, specials, tto, sport, technologie, spanish, basis, art) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
               array($school_name, $adress, $zip_code, $street_number, $district, $telephone, $email, $web_site, $private, $concept, $special, $tto,$sport,$tech,$spanish,$basic,$art));
 
                 $this->succes("Geupload");
+
+              }else{
+
+                $this->error("Deze school is al geupload");
+
+              }
 
 
           }else{

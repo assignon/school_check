@@ -10,6 +10,7 @@
     <!--<link rel="stylesheet" href="../../public/css/global_style/footer.css"/>-->
     <!--<link rel="stylesheet" href="../../public/css/global_style/leader_info.css"/>-->
     <script src="../public/javascript/admin.js"></script>
+    <script src="../public/javascript/connect.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <!--<script src="../../public/js/global/footer.js"></script>-->
@@ -24,7 +25,8 @@
 
            <form id="deleteForm" action="" method="post">
 
-             <div id="close">Sluiten</div>
+             <div id="close"><p>Sluiten</p></div>
+             <h3>Danger Zone</h3>
              <input type="number" name="school_id" id="schoolId">
              <input type="text" name="school_name" id="schoolNAME">
              <input type="password" name="password" placeholder="Wachtwoord">
@@ -48,7 +50,7 @@
 
                  <button id="list"></button>
 
-                 <a href="welcom.php?action=logout"><button>Uitlogen</button></a>
+                 <a href="welcom.php?action=logout" id="log"><button>Uitlogen</button></a>
 
              </div>
 
@@ -68,7 +70,7 @@
 
                  </div>
 
-
+                
 
              </div>
 

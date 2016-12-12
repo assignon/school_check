@@ -63,6 +63,9 @@ class update_model extends model
            $this->prepare("UPDATE schools SET schoolname=?, adress=?, street_number=?, zipcode=?, district=?, telnr=?, email=?, website=?, private=?, concept=?, specials=?, basis=?, tto=?, sport=?, spanish=?, technologie=?, art=? WHERE id=?",
            array($school_name, $adress, $street_number, $zip_code,$district, $telephone, $email, $web_site, $private, $concept, $special, $basic,$tto,$sport,$spanish,$tech,$art,$update_id));
 
+           $this->prepare("UPDATE online SET schoolname=?, adress=?, street_number=?, zipcode=?, district=?, telnr=?, email=?, website=?, private=?, concept=?, specials=?, basis=?, tto=?, sport=?, spanish=?, technologie=?, art=? WHERE schoolname=?",
+           array($school_name, $adress, $street_number, $zip_code,$district, $telephone, $email, $web_site, $private, $concept, $special, $basic,$tto,$sport,$spanish,$tech,$art,$update_name));
+
            //$this->prepare("UPDATE open_day SET date_openday=?, time_openday=? WHERE school_name=?,id=? ",
            //array($openday_date, $openday_time, $update_name, $openday_select['id']));
 
@@ -343,6 +346,7 @@ class update_model extends model
 
                     //$select = $this->prepare("SELECT*FROM more_input WHERE soort=? AND school_name=?",array("opendag",$schoolname));
                     $select_day = $this->prepare("SELECT*FROM open_day WHERE school_name=?",array($schoolname));
+                    $select_day_data = $this->prepare("SELECT*FROM open_data WHERE soort=? AND school_name=?",array("openday",$schoolname));
 
                     //$select_days = $select_day->fetch();
 
@@ -415,6 +419,39 @@ class update_model extends model
                     }
 
 
+                    while($display_days_data = $select_day_data->fetch()){
+
+
+
+                       ?>
+
+                          <script type="text/javascript">
+
+                          window.addEventListener("load", function(){
+
+                            var addinput = document.querySelectorAll(".inputs_parent");
+
+                             addinput[0].value = "<?php echo $display_days_data['name_date'];?>";
+                             addinput[1].value = "<?php echo $display_days_data['name_time'];?>";
+
+                           })
+
+                          </script>
+
+                       <?php
+
+                       if(isset($_POST['update'])){
+
+                           $this->prepare("UPDATE open_data SET name_date=?, name_time=? WHERE id=? ", array($_POST['dag_date'], $_POST['dag_time'], $display_days_data['id']));
+
+                       }
+
+
+                    }
+
+
+
+
                   }
 
       /***************************************************************************************************************************/
@@ -431,6 +468,13 @@ class update_model extends model
                     //$soort = htmlspecialchars($_POST['soort_field']);
 
                     while($display_classes = $select_class->fetch()){
+
+                      if(isset($_POST['update'])){
+
+                          $this->prepare("UPDATE open_class SET date_openclass=?, time_openclass=? WHERE id=? ", array($_POST[$display_classes['field_name_date']], $_POST[$display_classes['field_name_time']], $display_classes['id']));
+
+                      }
+
 
                        ?>
 
@@ -490,6 +534,40 @@ class update_model extends model
 
                     }
 
+                    $select_class_data = $this->prepare("SELECT*FROM open_data WHERE soort=? AND school_name=?",array("openclass",$schoolname));
+
+
+
+                    while($display_class_data = $select_class_data->fetch()){
+
+
+
+                       ?>
+
+                          <script type="text/javascript">
+
+                          window.addEventListener("load", function(){
+
+                            var addinput = document.querySelectorAll(".inputs_parent");
+
+                             addinput[2].value = "<?php echo $display_class_data['name_date'];?>";
+                             addinput[3].value = "<?php echo $display_class_data['name_time'];?>";
+
+                           })
+
+                          </script>
+
+                       <?php
+
+                       if(isset($_POST['update'])){
+
+                           $this->prepare("UPDATE open_data SET name_date=?, name_time=? WHERE id=? ", array($_POST['class_date'], $_POST['class_time'], $display_class_data['id']));
+
+                       }
+
+
+                    }
+
 
                   }
 
@@ -508,6 +586,12 @@ class update_model extends model
 
                     while($display_night = $info_night->fetch()){
 
+                      if(isset($_POST['update'])){
+
+                          $this->prepare("UPDATE info_night SET date_infonight=?, time_infonight=? WHERE id=? ", array($_POST[$display_night['field_name_date']], $_POST[$display_night['field_name_time']], $display_night['id']));
+
+                      }
+
                        ?>
 
                           <script type="text/javascript">
@@ -517,8 +601,8 @@ class update_model extends model
                             var addinput = document.querySelectorAll(".addInput");
                             var fieldset = document.querySelectorAll(".formulaire");
 
-                            var pkind = document.querySelector(".pKind");
-                            pkind.value = "<?php echo $display_night['parents_kind'];?>";
+                            //var pkind = document.querySelector(".pKind");
+                            //pkind.value = "<?php echo $display_night['parents_kind'];?>";
 
                             var updateBox = document.querySelectorAll(".updateBox");
 
@@ -570,6 +654,43 @@ class update_model extends model
                     }
 
 
+                    $select_night_data = $this->prepare("SELECT*FROM night_information WHERE school_name=?",array($schoolname));
+
+
+
+                    while($display_night_data = $select_night_data->fetch()){
+
+
+
+                       ?>
+
+                          <script type="text/javascript">
+
+                          window.addEventListener("load", function(){
+
+                            var addinput = document.querySelectorAll(".inputs_parent");
+                            var addselect = document.querySelector(".pKind");
+
+                             addinput[4].value = "<?php echo $display_night_data['date_infonight'];?>";
+                             addinput[5].value = "<?php echo $display_night_data['time_infonight'];?>";
+                            addselect.value = "<?php echo $display_night_data['parents_kind'];?>";
+
+                           })
+
+                          </script>
+
+                       <?php
+
+                       if(isset($_POST['update'])){
+
+                           $this->prepare("UPDATE night_information SET date_infonight=?, time_infonight=?, parents_kind=? WHERE id=? ", array($_POST['info_date'], $_POST['info_time'],$_POST['kind_parent'], $display_night_data['id']));
+
+                       }
+
+
+                    }
+
+
                   }
 
       /********************************************************************************************************************************/
@@ -585,7 +706,7 @@ class update_model extends model
 
                     while($visit = $select->fetch()){
 
-                    
+
                        ?>
 
                            <script type="text/javascript">

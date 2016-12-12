@@ -219,8 +219,8 @@
                   <p>Open dag</p>
                   <div class="dateTime">
 
-                      <!--<input type="date" name="dag_date" class="inputs_parent">
-                      <input type="time"  name="dag_time" class="inputs_parent">-->
+                      <input type="date" name="dag_date" class="inputs_parent">
+                      <input type="time"  name="dag_time" class="inputs_parent">
 
 
                   </div>
@@ -243,8 +243,8 @@
                   <p>Open Klas</p>
                   <div class="dateTime">
 
-                      <!--<input type="date" name="class_date" placeholder="Datum" class="inputs_parent">
-                      <input type="time" name="class_time" placeholder="Tijd" class="inputs_parent">-->
+                      <input type="date" name="class_date" placeholder="Datum" class="inputs_parent">
+                      <input type="time" name="class_time" placeholder="Tijd" class="inputs_parent">
 
 
                   </div>
@@ -263,13 +263,13 @@
                   <p>Nacht Informatie</p>
                   <div class="dateTime">
 
-                      <!--<input type="date" name="info_date" class="inputs_parent">
-                      <input type="time" name="info_time" class="inputs_parent">-->
+                      <input type="date" name="info_date" class="inputs_parent">
+                      <input type="time" name="info_time" class="inputs_parent">
 
 
                   </div>
 
-                  <select name="kind_parent" class="pKind" required>
+                  <select name="kind_parent" class="pKind">
 
                       <option value="">Kies uit allen ouders of ouders en student</option>
                       <option value="parent">Ouders</option>

@@ -32,7 +32,7 @@
 
           echo "U hebt geen toegaan tot deze pagine! Graag account aanmaken";
           ?>
-              <a href="login">Login page</a>
+              <a href="welcom.php?action=login">Login page</a>
           <?php
 
        }

@@ -10,6 +10,7 @@
     <!--<link rel="stylesheet" href="../../public/css/global_style/footer.css"/>-->
     <!--<link rel="stylesheet" href="../../public/css/global_style/leader_info.css"/>-->
     <script src="../public/javascript/gegevens.js"></script>
+    <script src="../public/javascript/connect.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <!--<script src="../../public/js/global/footer.js"></script>-->

@@ -6,7 +6,7 @@ html, body{
   background-image: url(../images/admin.jpg);
     background-position: top;
     background-repeat: no-repeat;
-    
+
 
 }
 
@@ -21,7 +21,7 @@ html, body{
     align-items: center;
     position: relative;
     top: 70px;
-    
+
 
 }
 
@@ -37,13 +37,19 @@ html, body{
 }
 
 #adding{
-    
+
     width: auto;
     height: auto;
     margin-right: 350px;
     margin-bottom: 100px;
     margin-top: 20px;
-    
+
+}
+
+#error{
+
+ color: #00D636;
+
 }
 
 #adding form{
@@ -53,37 +59,37 @@ html, body{
     align-items: center;
     width: 350px;
     height: auto;
-  
+
 
 }
 
 
 .changeAvatar{
-    
+
     position: absolute;
     backface-visibility: hidden;
     transform: perspective(600px) rotateY(180deg);
     -webkit-transform: perspective(600px) rotateY(180deg);
     transition: transform 1s linear 0s;
-  
-    
+
+
 }
 
 .changeAvatar input[type="submit"]{
-    
+
     position: relative;
     top: 50px;
-    
+
 }
 
 #avatar{
-    
+
     position: absolute;
     backface-visibility: hidden;
     transform: perspective(600px) rotateY(0deg);
     -webkit-transform: perspective(600px) rotateY(0deg);
     transition: transform 1s linear 0s;
-    
+
 }
 
 
@@ -121,7 +127,7 @@ html, body{
 }
 
 #parameter{
-    
+
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -130,33 +136,33 @@ html, body{
     height: auto;
     position: relative;
     top: 170px;
-    
+
 }
 
 .parameters{
-    
+
     width: 90px;
     height: 90px;
-  
+
     border-radius: 100%;
     margin-left: 20px;
     margin-right: 20px;
     cursor: pointer;
-    
-    
+
+
 }
 
 .parameters:hover{
-    
-    
+
+
     height: 70px;
     width: 70px;
-    
-    
+
+
 }
 
 .params{
-    
+
     width: 90px;
     height: 90px;
     border-radius: 100%;
@@ -164,43 +170,40 @@ html, body{
     cursor: pointer;
     border: 1px solid white;
     background-color: #0375B4;
-    
+
 }
 
 .params:first-child{
-    
+
    /* background-image: url(../images/chdAvatar.png);
     background-blend-mode: luminosity;*/
-    
+
     background-color: crimson;
     border: 1px solid crimson;
     text-align: center;
     color: white
-   
+
 }
 
 .params:first-child:hover{
-    
+
     /*background-image: url(../images/chgbgk.png);*/
     height: 70px;
     width: 70px;
-   
+
 }
 
 .params:nth-child(2){
-    
+
     background-image: url(../images/chdAvatar.png);
     background-blend-mode: luminosity;
-    
- 
+
+
 }
 
 .params:nth-child(2):hover{
-    
+
     background-image: url(../images/chgbgk.png);
     height: 70px;
     width: 70px;
 }
-
-
-

@@ -144,7 +144,7 @@ session_start();
             window.addEventListener("load", function(){
 
                var avatar = document.getElementById("userAvatar");
-               avatar.src = "../<?php echo $user_avatar['image_src'];?>";
+               avatar.src = "<?php echo $user_avatar['image_src'];?>";
 
 
             })

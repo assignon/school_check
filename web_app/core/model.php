@@ -13,8 +13,8 @@
 
       if( $this->pdo === null){
 
-          //$this->pdo= new PDO("mysql:host=localhost;dbname=schoolcheck_cms",'root','');
-          $this->pdo= new PDO("mysql:host=mysql.hostinger.fr;dbname=u646001124_check",'u646001124_yan','serges007');
+          $this->pdo= new PDO("mysql:host=localhost;dbname=schoolcheck_cms",'root','');
+          //$this->pdo= new PDO("mysql:host=mysql.hostinger.fr;dbname=u646001124_check",'u646001124_yan','serges007');
           $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
       }

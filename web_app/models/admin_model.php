@@ -8,6 +8,8 @@
   {
 
     private $increase = 0;
+    private $huidig_pagina;
+    private $perPagina;
 
     function __construct()
     {
@@ -32,8 +34,50 @@
 
      public function display_school_grid(){
 
+       $schools = $this->getPDO()->query("SELECT count(id) as nschools FROM schools");
+       $schools_fetch = $schools->fetch();
 
-        $select = $this->getPDO()->query("SELECT*FROM schools");
+       $nschools = $schools_fetch['nschools'];
+       $this->perPagina = 10;
+       //$currentPage = 1;
+
+       $aantal_Pagina = ceil($nschools /  $this->perPagina);
+
+       if(isset($_GET['p']) AND $_GET['p'] > 0 AND $_GET['p'] <= $aantal_Pagina){
+
+         $this->huidig_pagina = $_GET['p'];
+
+       }else{
+
+          $this->huidig_pagina = 1;
+
+       }
+
+      ?>
+
+         <div class="paginate">
+           <?php
+
+           for ($i=1; $i <= $aantal_Pagina; $i++) {
+             ?>
+
+                  <a href="welcom.php?action=admin&id=<?php echo $_SESSION['id'];?>&p=<?php echo $i;?>" class="pagination"><?php echo $i; ?></a>
+
+             <?php
+             //echo " <a href=\"welcom.php?action=admin$id=$_SESSION['id']&p=$i\" class='paginate'>$i</a> ";
+           }
+
+           ?>
+
+         </div>
+
+      <?php
+
+       $limit =  (($this->huidig_pagina-1)*$this->perPagina);
+       //echo $nschools;
+
+
+        $select = $this->getPDO()->query("SELECT*FROM schools ORDER BY id DESC LIMIT $limit".",$this->perPagina");
 
         while($school = $select->fetch()){
 
@@ -106,9 +150,6 @@
                    grid.appendChild(studentContainer);
 
 
-
-
-
                   delet.addEventListener("click", function(e){
 
                        var target = e.target.offsetTop;
@@ -179,6 +220,8 @@
 
         }
 
+
+
      }
 
 
@@ -200,120 +243,42 @@
 
      }
 
-     public function more_input(){
-
-
-       ?>
-
-             <script type="text/javascript">
-
-
-
-            /* var addInput = document.querySelectorAll(".addInput");
-             var fieldset = document.querySelectorAll(".field");
-
-             var addinput1 = document.createElement("div");
-             addinput1.className = "dateTime";
-
-             var addinput2 = document.createElement("div");
-             addinput2.className = "dateTime";
-
-             var addinput3 = document.createElement("div");
-             addinput3.className = "dateTime";
-
-
-             addInput[0].addEventListener("click", function(){
-
-              // var inputDateName = prompt("Geef een naam aan de nieuw Datum veld!!!");
-               //var inputTimeName = prompt("Geef een naam aan de nieuw Tijd veld!!!");
-
-               var rand = Math.floor(Math.random()*20)+1;
-               "<?php $rand = rand(1,10);?>";
-
-
-                var inputDate = document.createElement("input");
-                inputDate.name = 'inputDateName';
-                inputDate.type = "date";
-                inputDate.placeholder = "Datum"
-
-                var inputTime = document.createElement("input");
-                inputTime.name = 'inputTimeName';
-                inputTime.type = "time";
-                inputTime.placeholder = "Tijd"
-
-
-                addinput1.appendChild(inputDate);
-                addinput1.appendChild(inputTime);
-
-                fieldset[0].appendChild(addinput1);
-
-             })
-
-             addInput[1].addEventListener("click", function(){
-
-               var inputDate = document.createElement("input");
-               inputDate.name = 'inputDateName';
-               inputDate.type = "date";
-               inputDate.placeholder = "Datum"
-
-               var inputTime = document.createElement("input");
-               inputTime.name = 'inputTimeName';
-               inputTime.type = "time";
-               inputTime.placeholder = "Tijd"
-
-               addinput2.appendChild(inputDate);
-               addinput2.appendChild(inputTime);
-
-               fieldset[1].appendChild(addinput2);
-
-             })
-
-             addInput[2].addEventListener("click", function(){
-
-               var inputDate = document.createElement("input");
-               inputDate.name = 'inputDateName';
-               inputDate.type = "date";
-               inputDate.placeholder = "Datum"
-
-               var inputTime = document.createElement("input");
-               inputTime.name = 'inputTimeName';
-               inputTime.type = "time";
-               inputTime.placeholder = "Tijd"
-
-
-               addinput3.appendChild(inputDate);
-               addinput3.appendChild(inputTime);
-
-               fieldset[2].appendChild(addinput3);
-
-             })*/
-
-
-             </script>
-
-       <?php
-
-
-         /*if(isset($_POST['add'])){
-
-           $new_open_dag = $_POST['inputDateName'];
-           $new_dag_time = $_POST['inputTimeName'];
-           $school_name = htmlspecialchars($_POST['school_name']);
-
-           $this->prepare("INSERT INTO open_day(date_openday,time_openday,school_name) VALUES(?,?,?)",array($new_open_dag,$new_dag_time,$school_name));
-
-        }*/
-
-     }
-
-
 
 
 
      public function display_school_list(){
 
+       $schools = $this->getPDO()->query("SELECT count(id) as nschools FROM schools");
+       $schools_fetch = $schools->fetch();
 
-       $select = $this->getPDO()->query("SELECT*FROM schools");
+       $nschools = $schools_fetch['nschools'];
+       $this->perPagina = 1;
+       //$currentPage = 1;
+
+       $aantal_Pagina = ceil($nschools /  $this->perPagina);
+
+       if(isset($_GET['p']) AND $_GET['p'] > 0 AND $_GET['p'] <= $aantal_Pagina){
+
+         $this->huidig_pagina = $_GET['p'];
+
+       }else{
+
+          $this->huidig_pagina = 10;
+
+       }
+
+      ?>
+
+         
+
+      <?php
+
+       $limit =  (($this->huidig_pagina-1)*$this->perPagina);
+       //echo $nschools;
+
+
+        $select = $this->getPDO()->query("SELECT*FROM schools ORDER BY id DESC LIMIT $limit".",$this->perPagina");
+
 
        while($school = $select->fetch()){
 
@@ -398,7 +363,7 @@
 
                           },{
 
-                            duration: 1000,
+                            duration: 500,
                             easing: "easeOutBounce",
 
                           })
@@ -476,6 +441,7 @@
                 if($id == $id_check['id'] AND $school_name == $id_check['schoolname']){
 
                  $this->prepare("DELETE FROM schools WHERE id=?",array($id));
+                 $this->prepare("DELETE FROM online WHERE schoolname=?",array($school_name));
                  $this->prepare("DELETE FROM levels_data WHERE school_name=?",array($school_name));
                  $this->prepare("DELETE FROM levels_data WHERE school_name=?",array($school_name));
                  $this->prepare("DELETE FROM open_day WHERE school_name=?",array($school_name));
@@ -504,6 +470,29 @@
 
         }
 
+
+     }
+
+     public function admin_avatar(){
+
+      $select = $this->getPDO()->query("SELECT*FROM user_avatar");
+      $display = $select->fetch();
+      ?>
+
+        <script type="text/javascript">
+
+           window.addEventListener("load", function(){
+
+
+              var avatar = document.getElementById("userAvatar");
+              avatar.src = "<?php echo $display['image_src'];?>";
+
+
+           })
+
+        </script>
+
+      <?php
 
      }
 
